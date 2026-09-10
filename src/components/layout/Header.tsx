@@ -93,11 +93,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
           <div className="flex items-center gap-6 ml-auto">
             <a 
-              href="mailto:info@dynamicszentrum.co.uk" 
+              href="mailto:info@dynamicszentrum.com" 
               className="flex items-center gap-1.5 hover:text-brand transition-colors text-xs"
             >
               <Mail className="size-3.5 text-brand" />
-              <span>info@dynamicszentrum.co.uk</span>
+              <span>info@dynamicszentrum.com</span>
             </a>
 
             <a 

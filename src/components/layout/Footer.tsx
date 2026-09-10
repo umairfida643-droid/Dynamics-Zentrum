@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Mail, Phone } from 'lucide-react';
 import { SERVICES_DATA, SOLUTIONS_DATA, INDUSTRIES_DATA } from '../../data/siteData';
 
 export const Footer: React.FC = () => {
@@ -27,6 +28,23 @@ export const Footer: React.FC = () => {
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
               The UK's premier independent Microsoft Dynamics 365 consulting firm. Delivering complex enterprise transformations across EMEA since 2010.
             </p>
+
+            <div className="mt-4 space-y-2 text-xs text-muted-foreground">
+              <a 
+                href="mailto:info@dynamicszentrum.com" 
+                className="flex items-center gap-2 hover:text-brand transition-colors"
+              >
+                <Mail className="size-3.5 text-brand shrink-0" />
+                <span>info@dynamicszentrum.com</span>
+              </a>
+              <a 
+                href="tel:+447988586885" 
+                className="flex items-center gap-2 hover:text-brand transition-colors"
+              >
+                <Phone className="size-3.5 text-brand shrink-0" />
+                <span>+44 7988 586885</span>
+              </a>
+            </div>
 
             {/* Social Icons with SVG */}
             <div className="mt-6 flex gap-3">

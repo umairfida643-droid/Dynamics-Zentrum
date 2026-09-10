@@ -49,7 +49,7 @@ export const Contact: React.FC = () => {
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Mail className="size-3.5 text-purple shrink-0" />
-              <a href="mailto:uk@dynamicszentrum.co.uk" className="hover:text-brand font-medium">uk@dynamicszentrum.co.uk</a>
+              <a href="mailto:info@dynamicszentrum.com" className="hover:text-brand font-medium">info@dynamicszentrum.com</a>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Clock className="size-3.5 text-sky shrink-0" />
@@ -82,7 +82,7 @@ export const Contact: React.FC = () => {
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Mail className="size-3.5 text-purple shrink-0" />
-              <a href="mailto:usa@dynamicszentrum.co.uk" className="hover:text-brand font-medium">usa@dynamicszentrum.co.uk</a>
+              <a href="mailto:info@dynamicszentrum.com" className="hover:text-brand font-medium">info@dynamicszentrum.com</a>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Clock className="size-3.5 text-sky shrink-0" />
@@ -115,7 +115,7 @@ export const Contact: React.FC = () => {
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Mail className="size-3.5 text-purple shrink-0" />
-              <a href="mailto:pk@dynamicszentrum.co.uk" className="hover:text-brand font-medium">pk@dynamicszentrum.co.uk</a>
+              <a href="mailto:info@dynamicszentrum.com" className="hover:text-brand font-medium">info@dynamicszentrum.com</a>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Clock className="size-3.5 text-sky shrink-0" />

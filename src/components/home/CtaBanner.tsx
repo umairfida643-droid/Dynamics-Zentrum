@@ -19,7 +19,7 @@ const GLOBAL_OFFICES: GlobalOffice[] = [
     addressLine1: 'Suite 1835, 124 City Road',
     addressLine2: 'London, EC1V 2NX',
     phone: '+44 7988 586885',
-    email: 'uk@dynamicszentrum.co.uk',
+    email: 'info@dynamicszentrum.com',
     hours: 'Mon – Fri: 09:00 – 18:00 GMT'
   },
   {
@@ -28,7 +28,7 @@ const GLOBAL_OFFICES: GlobalOffice[] = [
     addressLine1: '1910 Thomes Ave.',
     addressLine2: 'Cheyenne, WY 82001-3527',
     phone: '+1 307 427 2797',
-    email: 'usa@dynamicszentrum.co.uk',
+    email: 'info@dynamicszentrum.com',
     hours: 'Mon – Fri: 09:00 – 17:00 MST'
   },
   {
@@ -37,7 +37,7 @@ const GLOBAL_OFFICES: GlobalOffice[] = [
     addressLine1: '2nd Floor, Emirate Tower, M-13',
     addressLine2: 'F-7 Markaz, Islamabad, Pakistan',
     phone: '+92 307 510 4500',
-    email: 'pk@dynamicszentrum.co.uk',
+    email: 'info@dynamicszentrum.com',
     hours: 'Mon – Fri: 09:00 – 18:00 PKT'
   }
 ];
