@@ -60,12 +60,12 @@ export const HeroSection: React.FC = () => {
 
         {/* INTERACTIVE FLOATING WINGS & CENTER AI SILHOUETTE */}
         <div className="relative mt-8 lg:mt-2 min-h-[380px] sm:min-h-[420px] flex items-center justify-center">
-          {/* Center Bottom: Holographic Digital Neural AI Head Watermark */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none w-[320px] sm:w-[400px] h-[340px] opacity-75 select-none z-0">
+          {/* Center Bottom: AI Circuit Head Watermark matching user provided PNG at 50% opacity */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none w-[340px] sm:w-[420px] md:w-[460px] h-auto select-none z-0">
             <img 
-              src="/assets/neural-head.svg" 
-              alt="Neural AI Architecture" 
-              className="w-full h-full object-contain animate-pulse-glow"
+              src="/assets/circuit-head.png" 
+              alt="AI Circuit Architecture" 
+              className="w-full h-auto object-contain opacity-50"
             />
           </div>
 
