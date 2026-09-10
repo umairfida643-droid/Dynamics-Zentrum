@@ -56,6 +56,9 @@ export default {
         'fade-up': 'fade-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both',
         'ping-slow': 'ping-slow 2.6s cubic-bezier(0, 0, 0.2, 1) infinite',
         'spin-slow': 'spin 12s linear infinite',
+        'spin-orbit-cw': 'spin-orbit 50s linear infinite',
+        'spin-orbit-ccw': 'spin-orbit-reverse 65s linear infinite',
+        'spin-orbit-outer': 'spin-orbit 85s linear infinite',
         'marquee': 'marquee-x 30s linear infinite',
       },
       keyframes: {
@@ -86,6 +89,14 @@ export default {
         'marquee-x': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        'spin-orbit': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'spin-orbit-reverse': {
+          '0%': { transform: 'rotate(360deg)' },
+          '100%': { transform: 'rotate(0deg)' },
         },
       },
     },
