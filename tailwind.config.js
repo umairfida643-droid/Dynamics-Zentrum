@@ -45,8 +45,8 @@ export default {
         surface: 'var(--surface)',
       },
       fontFamily: {
-        display: ['Sora', 'Manrope', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['Sora', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        body: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       animation: {
         'float': 'float-y 6s ease-in-out infinite',
