@@ -44,7 +44,7 @@ export const Home: React.FC = () => {
       {/* SECTION 8: Featured On & Industry Recognition */}
       <FeaturedRecognitionSection />
 
-      {/* SECTION 9 & 10: Consultation Banner & Where We Operate (London, Manchester, Birmingham) */}
+      {/* SECTION 9 & 10: Consultation Banner & Where We Operate (Pakistan, UK, USA) */}
       <CtaBanner />
     </div>
   );

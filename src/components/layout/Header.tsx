@@ -88,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               UK Microsoft Solutions Partner
             </span>
             <span className="text-black/20 dark:text-white/20">|</span>
-            <span className="text-[11px]">London · Manchester · Birmingham</span>
+            <span className="text-[11px]">United Kingdom · United States · Pakistan</span>
           </div>
 
           <div className="flex items-center gap-6 ml-auto">
@@ -101,11 +101,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             </a>
 
             <a 
-              href="tel:+442079460920" 
+              href="tel:+447988586885" 
               className="flex items-center gap-1.5 font-semibold text-navy dark:text-foreground hover:text-brand transition-colors text-xs"
             >
               <Phone className="size-3.5 text-brand" />
-              <span>020 7946 0920</span>
+              <span>+44 7988 586885</span>
             </a>
           </div>
         </div>

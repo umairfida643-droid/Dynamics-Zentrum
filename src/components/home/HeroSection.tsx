@@ -166,7 +166,7 @@ export const HeroSection: React.FC = () => {
                     <span>Microsoft Cloud Architecture Fabric</span>
                     <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
                   </div>
-                  <div className="text-[10px] text-muted-foreground">UK South (London) · North (Manchester) Active Clusters</div>
+                  <div className="text-[10px] text-muted-foreground">Global Delivery: United Kingdom · United States · Pakistan</div>
                 </div>
               </div>
 
@@ -273,7 +273,7 @@ export const HeroSection: React.FC = () => {
               </span>
               <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
                 <MapPin className="size-4 text-brand" />
-                London · Manchester · Birmingham
+                United Kingdom · United States · Pakistan
               </span>
             </div>
           </div>

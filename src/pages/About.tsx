@@ -15,7 +15,7 @@ export const About: React.FC = () => {
           UK’s Trusted Microsoft Dynamics 365 Partner
         </h1>
         <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-          As a certified Microsoft Solutions Partner, we empower UK and international enterprises with future-ready technologies that deliver tangible commercial impact. With 14+ years of proven expertise, 500+ successful deployments, and 150+ certified consultants across London, Manchester, and Birmingham, we deliver transformations that last.
+          As a certified Microsoft Solutions Partner, we empower UK and international enterprises with future-ready technologies that deliver tangible commercial impact. With 14+ years of proven expertise, 500+ successful deployments, and 150+ certified consultants across our United Kingdom, United States, and Pakistan offices, we deliver transformations that last.
         </p>
       </div>
 
@@ -108,13 +108,13 @@ export const About: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 text-brand text-xs font-semibold uppercase tracking-wider">
               <MapPin className="size-4" />
-              <span>Nationwide UK Presence</span>
+              <span>Global Presence &amp; Delivery</span>
             </div>
             <h3 className="mt-2 text-2xl md:text-3xl font-bold text-navy dark:text-foreground">
-              Local UK Delivery Teams in London, Manchester &amp; Birmingham
+              International Offices in United Kingdom, United States &amp; Pakistan
             </h3>
             <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
-              Unlike offshore-only providers, our practice directors and solution architects work alongside your team on-site in the UK, providing responsive communication and culturally aligned governance.
+              Strategically positioned across London, Cheyenne, and Islamabad to provide around-the-clock enterprise engineering, solution architecture, and continuous managed support.
             </p>
           </div>
 

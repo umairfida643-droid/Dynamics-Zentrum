@@ -30,8 +30,8 @@ const IMPACT_CARDS: ImpactCard[] = [
   },
   {
     metric: '100%',
-    label: 'UK Sovereign Team',
-    context: 'Senior onshore architects based in London, Manchester & Birmingham.',
+    label: 'Global Delivery Network',
+    context: 'Senior architects and engineers in United Kingdom, United States & Pakistan.',
     icon: <Award className="size-6 text-sky" />
   }
 ];

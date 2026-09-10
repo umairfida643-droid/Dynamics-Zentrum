@@ -19,86 +19,107 @@ export const Contact: React.FC = () => {
           Contact Dynamics Zentrum
         </h1>
         <p className="mt-3 text-base md:text-lg text-muted-foreground leading-relaxed">
-          Connect with our UK Microsoft Dynamics 365 practice leads to discuss project scoping, migrations, enterprise licensing, or technical audits.
+          Connect with our Microsoft Dynamics 365 practice leads across our UK, US, and Pakistan offices to discuss project scoping, migrations, enterprise licensing, or technical audits.
         </p>
       </div>
 
-      {/* 3 Physical UK Locations */}
+      {/* 3 Physical Global Locations: Pakistan, UK, USA */}
       <div className="mt-14 grid gap-6 md:grid-cols-3">
-        <div className="rounded-3xl border border-black/5 bg-card p-6 shadow-sm dark:border-white/10 dark:bg-card">
-          <div className="flex items-center justify-between">
-            <div className="grid size-11 place-items-center rounded-2xl bg-brand/10 text-brand">
-              <MapPin className="size-5" />
+        {/* United Kingdom Office */}
+        <div className="rounded-3xl border border-black/5 bg-card p-6 shadow-sm dark:border-white/10 dark:bg-card flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between">
+              <div className="grid size-11 place-items-center rounded-2xl bg-brand/10 text-brand">
+                <MapPin className="size-5" />
+              </div>
+              <span className="rounded-full bg-brand/5 px-2.5 py-1 text-[10px] font-semibold text-brand ring-1 ring-brand/15">
+                European HQ
+              </span>
             </div>
-            <span className="rounded-full bg-brand/5 px-2.5 py-1 text-[10px] font-semibold text-brand ring-1 ring-brand/15">
-              Headquarters
-            </span>
+            <h3 className="mt-4 font-bold text-lg text-navy dark:text-foreground">United Kingdom Office</h3>
+            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+              Suite 1835, 124 City Road<br />
+              London, EC1V 2NX, United Kingdom
+            </p>
           </div>
-          <h3 className="mt-4 font-bold text-lg text-navy dark:text-foreground">London Office</h3>
-          <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-            120 Moorgate, City of London<br />
-            EC2M 6UR, United Kingdom
-          </p>
-          <div className="mt-4 space-y-1.5 pt-3 border-t border-black/5 dark:border-white/10 text-xs">
+          <div className="mt-6 space-y-1.5 pt-3 border-t border-black/5 dark:border-white/10 text-xs">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Phone className="size-3.5 text-brand shrink-0" />
-              <a href="tel:+442079460920" className="hover:text-brand font-medium">+44 (0) 20 7946 0920</a>
+              <a href="tel:+447988586885" className="hover:text-brand font-semibold text-navy dark:text-foreground">+44 7988 586885</a>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Mail className="size-3.5 text-purple shrink-0" />
-              <a href="mailto:london@dynamicszentrum.co.uk" className="hover:text-brand font-medium">london@dynamicszentrum.co.uk</a>
+              <a href="mailto:uk@dynamicszentrum.co.uk" className="hover:text-brand font-medium">uk@dynamicszentrum.co.uk</a>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Clock className="size-3.5 text-sky shrink-0" />
+              <span>Mon – Fri: 09:00 – 18:00 GMT</span>
             </div>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-black/5 bg-card p-6 shadow-sm dark:border-white/10 dark:bg-card">
-          <div className="flex items-center justify-between">
-            <div className="grid size-11 place-items-center rounded-2xl bg-purple/10 text-purple">
-              <MapPin className="size-5" />
+        {/* United States Office */}
+        <div className="rounded-3xl border border-black/5 bg-card p-6 shadow-sm dark:border-white/10 dark:bg-card flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between">
+              <div className="grid size-11 place-items-center rounded-2xl bg-purple/10 text-purple">
+                <MapPin className="size-5" />
+              </div>
+              <span className="rounded-full bg-brand/5 px-2.5 py-1 text-[10px] font-semibold text-brand ring-1 ring-brand/15">
+                North America HQ
+              </span>
             </div>
-            <span className="rounded-full bg-brand/5 px-2.5 py-1 text-[10px] font-semibold text-brand ring-1 ring-brand/15">
-              North West
-            </span>
+            <h3 className="mt-4 font-bold text-lg text-navy dark:text-foreground">United States Office</h3>
+            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+              1910 Thomes Ave.<br />
+              Cheyenne, WY 82001-3527, United States
+            </p>
           </div>
-          <h3 className="mt-4 font-bold text-lg text-navy dark:text-foreground">Manchester Office</h3>
-          <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-            International House, 61 Mosley Street<br />
-            M2 3HZ, United Kingdom
-          </p>
-          <div className="mt-4 space-y-1.5 pt-3 border-t border-black/5 dark:border-white/10 text-xs">
+          <div className="mt-6 space-y-1.5 pt-3 border-t border-black/5 dark:border-white/10 text-xs">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Phone className="size-3.5 text-brand shrink-0" />
-              <a href="tel:+441618329901" className="hover:text-brand font-medium">+44 (0) 161 832 9901</a>
+              <a href="tel:+13074272797" className="hover:text-brand font-semibold text-navy dark:text-foreground">+1 307 427 2797</a>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Mail className="size-3.5 text-purple shrink-0" />
-              <a href="mailto:manchester@dynamicszentrum.co.uk" className="hover:text-brand font-medium">manchester@dynamicszentrum.co.uk</a>
+              <a href="mailto:usa@dynamicszentrum.co.uk" className="hover:text-brand font-medium">usa@dynamicszentrum.co.uk</a>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Clock className="size-3.5 text-sky shrink-0" />
+              <span>Mon – Fri: 09:00 – 17:00 MST</span>
             </div>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-black/5 bg-card p-6 shadow-sm dark:border-white/10 dark:bg-card">
-          <div className="flex items-center justify-between">
-            <div className="grid size-11 place-items-center rounded-2xl bg-sky/20 text-sky">
-              <MapPin className="size-5" />
+        {/* Pakistan Office */}
+        <div className="rounded-3xl border border-black/5 bg-card p-6 shadow-sm dark:border-white/10 dark:bg-card flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between">
+              <div className="grid size-11 place-items-center rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                <MapPin className="size-5" />
+              </div>
+              <span className="rounded-full bg-brand/5 px-2.5 py-1 text-[10px] font-semibold text-brand ring-1 ring-brand/15">
+                Delivery &amp; Engineering Hub
+              </span>
             </div>
-            <span className="rounded-full bg-brand/5 px-2.5 py-1 text-[10px] font-semibold text-brand ring-1 ring-brand/15">
-              Midlands
-            </span>
+            <h3 className="mt-4 font-bold text-lg text-navy dark:text-foreground">Pakistan Office</h3>
+            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+              2nd Floor, Emirate Tower, M-13<br />
+              F-7 Markaz, Islamabad, Pakistan
+            </p>
           </div>
-          <h3 className="mt-4 font-bold text-lg text-navy dark:text-foreground">Birmingham Office</h3>
-          <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-            Izabella House, 24-26 Regents Place, City Centre<br />
-            B1 3NJ, United Kingdom
-          </p>
-          <div className="mt-4 space-y-1.5 pt-3 border-t border-black/5 dark:border-white/10 text-xs">
+          <div className="mt-6 space-y-1.5 pt-3 border-t border-black/5 dark:border-white/10 text-xs">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Phone className="size-3.5 text-brand shrink-0" />
-              <a href="tel:+441216438812" className="hover:text-brand font-medium">+44 (0) 121 643 8812</a>
+              <a href="tel:+923075104500" className="hover:text-brand font-semibold text-navy dark:text-foreground">+92 307 510 4500</a>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Mail className="size-3.5 text-purple shrink-0" />
-              <a href="mailto:birmingham@dynamicszentrum.co.uk" className="hover:text-brand font-medium">birmingham@dynamicszentrum.co.uk</a>
+              <a href="mailto:pk@dynamicszentrum.co.uk" className="hover:text-brand font-medium">pk@dynamicszentrum.co.uk</a>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Clock className="size-3.5 text-sky shrink-0" />
+              <span>Mon – Fri: 09:00 – 18:00 PKT</span>
             </div>
           </div>
         </div>
@@ -119,11 +140,11 @@ export const Contact: React.FC = () => {
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="size-4 text-brand shrink-0 mt-0.5" />
-                <span><strong>UK-Based Architects:</strong> Speak directly with senior D365 Solution Architects, not junior account reps.</span>
+                <span><strong>Senior Solution Architects:</strong> Speak directly with certified D365 Solution Architects, not junior reps.</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="size-4 text-brand shrink-0 mt-0.5" />
-                <span><strong>Fast 2-Hour Response:</strong> Dedicated commercial desk ensures prompt handling of your inquiry.</span>
+                <span><strong>Guaranteed 2-Hour Response:</strong> Dedicated commercial desk ensures prompt handling of your inquiry.</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="size-4 text-brand shrink-0 mt-0.5" />
@@ -142,7 +163,7 @@ export const Contact: React.FC = () => {
               For contracted 24/7 SLA clients requiring emergency incident management:
             </p>
             <div className="mt-3 text-sm font-semibold text-brand">
-              Emergency Hotline: +44 (0) 20 7946 0999 (PIN Required)
+              Emergency Hotline: +44 7988 586885 (24/7 SLA Hotline)
             </div>
           </div>
         </div>
@@ -158,7 +179,7 @@ export const Contact: React.FC = () => {
                 Message Received
               </h3>
               <p className="mt-3 text-sm text-muted-foreground max-w-sm mx-auto">
-                Thank you for reaching out. A Senior Dynamics 365 Practice Director from our UK office will contact you within 2 business hours.
+                Thank you for reaching out. A Senior Dynamics 365 Practice Director will contact you within 2 business hours.
               </p>
             </div>
           ) : (
@@ -183,7 +204,7 @@ export const Contact: React.FC = () => {
                     required
                     type="email"
                     className="w-full rounded-xl border border-black/10 bg-background px-4 py-3 text-sm text-navy dark:text-foreground dark:border-white/15 outline-none focus:border-brand"
-                    placeholder="sarah@company.co.uk"
+                    placeholder="sarah@company.com"
                   />
                 </div>
               </div>
@@ -196,19 +217,19 @@ export const Contact: React.FC = () => {
                   <input
                     type="tel"
                     className="w-full rounded-xl border border-black/10 bg-background px-4 py-3 text-sm text-navy dark:text-foreground dark:border-white/15 outline-none focus:border-brand"
-                    placeholder="+44 7700 900077"
+                    placeholder="+44 7988 586885"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
-                    Nearest UK Hub
+                    Preferred Office / Region
                   </label>
                   <select
                     className="w-full rounded-xl border border-black/10 bg-background px-4 py-3 text-sm text-navy dark:text-foreground dark:border-white/15 outline-none focus:border-brand"
                   >
-                    <option>London (City / South)</option>
-                    <option>Manchester (North West)</option>
-                    <option>Birmingham (Midlands)</option>
+                    <option>United Kingdom Office (London)</option>
+                    <option>United States Office (Cheyenne, WY)</option>
+                    <option>Pakistan Office (Islamabad)</option>
                     <option>Remote / Virtual Consultation</option>
                   </select>
                 </div>
@@ -245,13 +266,13 @@ export const Contact: React.FC = () => {
                 type="submit"
                 className="btn-shine w-full rounded-xl bg-brand py-3.5 text-sm font-semibold text-brand-foreground shadow-lg shadow-brand/25 ring-1 ring-brand hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
               >
-                <span>Send Inquiry to UK Specialists</span>
+                <span>Send Inquiry to Specialists</span>
                 <ArrowRight className="size-4" />
               </button>
 
               <div className="flex items-center justify-center gap-2 text-[11px] text-muted-foreground">
                 <ShieldCheck className="size-3.5 text-emerald-500" />
-                <span>Your information is strictly protected under UK Data Protection &amp; GDPR.</span>
+                <span>Your information is strictly protected under enterprise confidentiality &amp; GDPR.</span>
               </div>
             </form>
           )}
