@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.75rem;
+  --background: #fdfdfd;
+  --foreground: #18181b;
+  --card: #ffffff;
+  --card-foreground: #18181b;
+  --brand: #cc00e6;
+  --brand-foreground: #ffffff;
+  --navy: #14031a;
+  --sky: #f5a8ff;
+  --purple: #7c3aed;
+  --success: #10b981;
+  --surface: #fcfcfd;
+  --muted: #f4f4f6;
+  --muted-foreground: #6b7280;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+.dark {
+  --background: #0d0211;
+  --foreground: #f4f4f6;
+  --card: #150520;
+  --card-foreground: #f4f4f6;
+  --brand: #e879f9;
+  --brand-foreground: #14031a;
+  --navy: #f4f4f6;
+  --sky: #f5a8ff;
+  --purple: #a78bfa;
+  --success: #34d399;
+  --surface: #0a010d;
+  --muted: #1f082e;
+  --muted-foreground: #9ca3af;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom Utilities */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.25) 45%,
+    transparent 70%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  transition: transform 0.75s ease-in-out;
+}
+.btn-shine:hover::after {
+  transform: translateX(100%) rotate(25deg);
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.4s, border-color 0.4s;
+}
+.card-3d:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Range input styling */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background: var(--brand);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(204, 0, 230, 0.5);
+  border: 2px solid white;
+}
+input[type="range"]::-moz-range-thumb {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background: var(--brand);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(204, 0, 230, 0.5);
+  border: 2px solid white;
+}
