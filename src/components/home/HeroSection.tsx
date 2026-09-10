@@ -86,43 +86,27 @@ export const HeroSection: React.FC = () => {
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(124,58,237,0.06),transparent_70%)]" />
 
-      {/* Decorative Orbit Rings behind center */}
-      <div className="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2 -z-10 size-[620px] rounded-full border border-black/[0.03] dark:border-white/[0.04]" />
-      <div className="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 -z-10 size-[800px] rounded-full border border-dashed border-black/[0.04] dark:border-white/[0.05]" />
+      {/* Decorative Orbit Rings behind center matching screenshot */}
+      <div className="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 -z-10 size-[600px] rounded-full border border-dashed border-purple-500/20 dark:border-white/15" />
+      <div className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 -z-10 size-[850px] rounded-full border border-dashed border-purple-500/15 dark:border-white/10" />
+      <div className="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 -z-10 size-[1100px] rounded-full border border-dashed border-purple-500/10 dark:border-white/[0.07]" />
 
       <div className="mx-auto max-w-7xl px-6">
-        {/* CENTERED HERO HEADER - Exact Dynamics Square UK layout */}
+        {/* CENTERED HERO HEADER - Exact match with user reference screenshot */}
         <div className="mx-auto max-w-4xl text-center animate-fade-up">
-          {/* Top Accreditation Pill */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-brand/5 px-4 py-1.5 ring-1 ring-brand/20 dark:bg-brand/10 mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-brand opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
-            </span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
-              Microsoft Solutions Partner · Business Applications
-            </span>
+          {/* Top Pre-title: UK's Trusted Microsoft Dynamics 365 Partner */}
+          <div className="text-sm sm:text-base md:text-lg font-semibold text-navy/80 dark:text-white/90 tracking-normal mb-3 sm:mb-4">
+            UK's Trusted Microsoft Dynamics 365 Partner
           </div>
 
           {/* Main H1 Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-navy dark:text-foreground leading-[1.06] text-balance">
-            UK's Trusted{' '}
-            <span className="bg-gradient-to-r from-brand via-brand to-purple bg-clip-text text-transparent">
-              Microsoft Dynamics 365
-            </span>{' '}
-            Partner
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-navy dark:text-white leading-[1.12] text-balance">
+            When results count,<br className="hidden sm:inline" />{' '}
+            <span className="text-brand dark:text-white">Dynamics Zentrum delivers!</span>
           </h1>
 
-          {/* Hero Tagline Span */}
-          <div className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-navy/90 dark:text-foreground/90">
-            When results count,{' '}
-            <span className="text-brand underline decoration-brand/30 decoration-2 underline-offset-6">
-              Dynamics Zentrum delivers!
-            </span>
-          </div>
-
           {/* Centered Descriptive Narrative */}
-          <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed text-pretty">
+          <p className="mx-auto mt-6 max-w-3xl text-base sm:text-lg md:text-xl text-muted-foreground dark:text-white/80 leading-relaxed text-pretty font-normal">
             As a certified Microsoft Dynamics 365 partner in the UK, we empower businesses with future-ready technologies that deliver impact. Dominate and thrive with AI-powered Microsoft solutions. With Dynamics Zentrum, your success is powered by years of proven expertise—no matter the industry!
           </p>
 
