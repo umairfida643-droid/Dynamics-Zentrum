@@ -48,22 +48,25 @@ export const FeaturedRecognitionSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 5 Recognition Cards in a Row */}
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        {/* 5 Recognition Cards in a Row with 3D Elevation */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5 perspective-1000">
           {RECOGNITION_ITEMS.map((item) => (
             <div
               key={item.name}
-              className="card-3d group flex flex-col justify-between rounded-3xl border border-black/5 bg-card p-6 shadow-sm transition-all hover:border-brand/40 hover:shadow-lg dark:border-white/10 dark:bg-card"
+              className="card-3d group flex flex-col justify-between rounded-3xl border border-black/8 bg-card p-6 shadow-sm transition-all duration-500 hover:border-brand/50 hover:shadow-[0_20px_40px_-12px_rgba(204,0,230,0.22)] dark:border-white/10 dark:bg-card/90 dark:hover:border-brand/60 dark:hover:shadow-[0_20px_40px_-12px_rgba(204,0,230,0.3)] relative overflow-hidden preserve-3d"
             >
-              <div>
+              {/* Subtle 3D Specular Sheen */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="relative z-10">
                 <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-brand/5 px-2.5 py-1 text-[10px] font-semibold text-brand ring-1 ring-brand/15">
+                  <span className="rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-semibold text-brand ring-1 ring-brand/20 shadow-xs group-hover:scale-105 transition-transform">
                     {item.rating}
                   </span>
-                  <Award className="size-4 text-brand" />
+                  <Award className="size-4 text-brand group-hover:rotate-12 transition-transform duration-300" />
                 </div>
 
-                <h3 className="mt-4 text-base font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors">
+                <h3 className="mt-4 text-base font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors duration-300">
                   {item.name}
                 </h3>
 
@@ -76,8 +79,8 @@ export const FeaturedRecognitionSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/10 flex items-center gap-1.5 text-[11px] font-semibold text-brand">
-                <CheckCircle2 className="size-3.5" />
+              <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/10 flex items-center gap-1.5 text-[11px] font-semibold text-brand relative z-10">
+                <CheckCircle2 className="size-3.5 group-hover:scale-110 transition-transform" />
                 <span>Verified Publication</span>
               </div>
             </div>

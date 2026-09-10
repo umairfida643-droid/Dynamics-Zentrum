@@ -55,19 +55,22 @@ export const BusinessSizeSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 4 Cards in a Row matching card-667 card-667-hover */}
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* 4 Cards in a Row with 3D Elevation */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 perspective-1000">
           {SEGMENTS.map((seg) => (
             <div
               key={seg.title}
-              className="card-3d group flex flex-col justify-between rounded-3xl border border-black/5 bg-card p-7 shadow-sm transition-all hover:border-brand/40 hover:shadow-xl dark:border-white/10 dark:bg-card"
+              className="card-3d group flex flex-col justify-between rounded-3xl border border-black/8 bg-card p-7 shadow-sm transition-all duration-500 hover:border-brand/50 hover:shadow-[0_20px_45px_-12px_rgba(204,0,230,0.22)] dark:border-white/10 dark:bg-card/90 dark:hover:border-brand/60 dark:hover:shadow-[0_20px_45px_-12px_rgba(204,0,230,0.35)] relative overflow-hidden preserve-3d"
             >
-              <div>
-                <div className="grid size-14 place-items-center rounded-2xl bg-muted/60 dark:bg-muted/20 group-hover:bg-brand/10 transition-colors">
+              {/* Subtle 3D Glass Specular Sheen */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="relative z-10">
+                <div className="grid size-14 place-items-center rounded-2xl bg-muted/70 dark:bg-muted/30 group-hover:bg-brand/15 transition-all duration-300 shadow-xs group-hover:scale-110 group-hover:shadow-md group-hover:shadow-brand/20">
                   {seg.icon}
                 </div>
 
-                <h3 className="mt-6 text-xl font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors">
+                <h3 className="mt-6 text-xl font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors duration-300">
                   {seg.title}
                 </h3>
 
@@ -80,13 +83,13 @@ export const BusinessSizeSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-black/5 dark:border-white/10">
+              <div className="mt-8 pt-4 border-t border-black/5 dark:border-white/10 relative z-10">
                 <Link
                   to="/book-consultation"
-                  className="btn-shine inline-flex w-full items-center justify-center gap-2 rounded-xl bg-card border border-black/10 py-2.5 text-xs font-semibold text-navy hover:border-brand hover:text-brand dark:border-white/10 dark:text-foreground dark:hover:border-brand transition-all"
+                  className="btn-shine inline-flex w-full items-center justify-center gap-2 rounded-xl bg-card border border-black/10 py-2.5 text-xs font-semibold text-navy hover:border-brand hover:text-brand hover:shadow-md dark:border-white/10 dark:text-foreground dark:hover:border-brand transition-all duration-300 group-hover:border-brand/40"
                 >
                   <span>Get Started</span>
-                  <ArrowRight className="size-3.5" />
+                  <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>

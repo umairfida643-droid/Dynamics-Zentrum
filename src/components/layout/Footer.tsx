@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone } from 'lucide-react';
 import { SERVICES_DATA, SOLUTIONS_DATA, INDUSTRIES_DATA } from '../../data/siteData';
+import { MicrosoftPartnerLogo } from '../common/MicrosoftPartnerLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -102,16 +103,7 @@ export const Footer: React.FC = () => {
             {/* Microsoft Partner Badges */}
             <div className="mt-8">
               <div className="mb-3">
-                <img 
-                  src="/assets/microsoft-partner.png" 
-                  alt="Microsoft Solutions Partner" 
-                  className="h-8 w-auto object-contain block dark:hidden"
-                />
-                <img 
-                  src="/assets/microsoft-partner-dark.png" 
-                  alt="Microsoft Solutions Partner" 
-                  className="h-8 w-auto object-contain hidden dark:block"
-                />
+                <MicrosoftPartnerLogo className="h-8 w-auto hover:opacity-90 transition-opacity" />
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 {[

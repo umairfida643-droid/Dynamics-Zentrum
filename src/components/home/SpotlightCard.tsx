@@ -50,23 +50,26 @@ export const SpotlightCard: React.FC = () => {
           </p>
         </div>
 
-        {/* 4 Impact Cards in a Row */}
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* 4 Impact Cards in a Row with 3D Depth */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 perspective-1000">
           {IMPACT_CARDS.map((card, idx) => (
             <div
               key={idx}
-              className="card-3d group flex flex-col justify-between rounded-3xl border border-black/5 bg-card p-7 shadow-sm transition-all hover:border-brand/40 hover:shadow-xl dark:border-white/10 dark:bg-card"
+              className="card-3d group flex flex-col justify-between rounded-3xl border border-black/8 bg-card p-7 shadow-sm transition-all duration-500 hover:border-brand/50 hover:shadow-[0_20px_45px_-12px_rgba(204,0,230,0.25)] dark:border-white/10 dark:bg-card/90 dark:hover:border-brand/60 dark:hover:shadow-[0_20px_45px_-12px_rgba(204,0,230,0.35)] relative overflow-hidden preserve-3d"
             >
-              <div>
-                <div className="grid size-14 place-items-center rounded-2xl bg-muted/60 dark:bg-muted/20 group-hover:bg-brand/10 transition-colors">
+              {/* Subtle 3D Glass Highlight Sheen */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="grid size-14 place-items-center rounded-2xl bg-muted/70 dark:bg-muted/30 group-hover:bg-brand/15 transition-all duration-300 shadow-xs group-hover:scale-110 group-hover:shadow-md group-hover:shadow-brand/20">
                   {card.icon}
                 </div>
 
-                <div className="mt-6 text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-brand via-brand to-purple bg-clip-text text-transparent">
+                <div className="mt-6 text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-brand via-purple to-brand bg-clip-text text-transparent group-hover:scale-[1.03] transition-transform origin-left duration-300">
                   {card.metric}
                 </div>
 
-                <h3 className="mt-2 text-base font-bold text-navy dark:text-foreground">
+                <h3 className="mt-2 text-base font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors duration-300">
                   {card.label}
                 </h3>
 
@@ -75,8 +78,8 @@ export const SpotlightCard: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/10 flex items-center gap-2 text-xs font-semibold text-brand">
-                <CheckCircle2 className="size-4" />
+              <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/10 flex items-center gap-2 text-xs font-semibold text-brand relative z-10">
+                <CheckCircle2 className="size-4 shrink-0 group-hover:rotate-12 transition-transform duration-300" />
                 <span>Verified Impact Metric</span>
               </div>
             </div>

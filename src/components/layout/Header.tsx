@@ -16,6 +16,7 @@ import {
   Cpu
 } from 'lucide-react';
 import { SERVICES_DATA, SOLUTIONS_DATA, INDUSTRIES_DATA } from '../../data/siteData';
+import { MicrosoftPartnerLogo } from '../common/MicrosoftPartnerLogo';
 
 interface HeaderProps {
   onOpenSearch?: () => void;
@@ -132,18 +133,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               />
             </Link>
 
-            {/* Microsoft Solutions Partner Official Logo side-by-side matching target site */}
+            {/* Microsoft Solutions Partner Official Logo side-by-side with transparent background */}
             <div className="hidden sm:flex items-center pl-3 border-l border-black/10 dark:border-white/10">
-              <img 
-                src="/assets/microsoft-partner.png" 
-                alt="Microsoft Solutions Partner" 
-                className="h-8 md:h-9 w-auto object-contain block dark:hidden"
-              />
-              <img 
-                src="/assets/microsoft-partner-dark.png" 
-                alt="Microsoft Solutions Partner" 
-                className="h-8 md:h-9 w-auto object-contain hidden dark:block"
-              />
+              <MicrosoftPartnerLogo className="h-8 md:h-9 w-auto hover:opacity-90 transition-opacity" />
             </div>
           </div>
 

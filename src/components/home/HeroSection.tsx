@@ -44,7 +44,7 @@ export const HeroSection: React.FC = () => {
           <div className="mt-8 sm:mt-10 flex flex-col items-center justify-center">
             <Link
               to="/book-consultation"
-              className="btn-shine group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#ff5252] via-[#ff4081] to-[#e040fb] px-8 py-4 text-base sm:text-lg font-bold text-white shadow-2xl shadow-rose-600/35 ring-1 ring-white/25 hover:scale-[1.03] transition-all"
+              className="btn-shine group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#ff5252] via-[#ff4081] to-[#e040fb] px-8 py-4 text-base sm:text-lg font-bold text-white shadow-[0_20px_40px_-10px_rgba(255,64,129,0.5),_0_0_25px_rgba(224,64,251,0.35)] ring-1 ring-white/30 hover:scale-[1.03] hover:-translate-y-1 active:translate-y-0.5 active:scale-[0.99] transition-all duration-300"
             >
               <Sparkles className="size-5 text-white animate-pulse" />
               <span>Book a Free Consultation</span>
@@ -58,98 +58,128 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* INTERACTIVE FLOATING WINGS & CENTER AI SILHOUETTE */}
-        <div className="relative mt-8 lg:mt-2 min-h-[380px] sm:min-h-[420px] flex items-center justify-center">
-          {/* Center Bottom: AI Circuit Head Watermark matching user provided PNG at 50% opacity */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none w-[340px] sm:w-[420px] md:w-[460px] h-auto select-none z-0">
+        {/* INTERACTIVE 3D FLOATING WINGS & CENTER AI HOLOGRAPHIC ARCHITECTURE */}
+        <div className="relative mt-8 lg:mt-2 min-h-[380px] sm:min-h-[440px] flex items-center justify-center perspective-1000">
+          {/* Center 3D Holographic AI Circuit Head with ambient aura */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none w-[340px] sm:w-[420px] md:w-[480px] h-auto select-none z-0">
+            {/* 3D ambient aura glow */}
+            <div className="absolute inset-0 -top-6 rounded-full bg-gradient-to-b from-brand/20 via-purple-600/15 to-transparent blur-2xl animate-pulse-glow" />
             <img 
               src="/assets/circuit-head.png" 
               alt="AI Circuit Architecture" 
-              className="w-full h-auto object-contain opacity-50"
+              className="w-full h-auto object-contain opacity-60 drop-shadow-[0_15px_35px_rgba(204,0,230,0.3)] transition-all duration-700 hover:opacity-80"
             />
           </div>
 
-          {/* LEFT WING: Floating Pill Elements matching screenshot */}
-          <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-8 relative z-10">
-            {/* Left Group */}
-            <div className="flex flex-col gap-6 sm:gap-8 items-start w-full lg:w-auto">
-              {/* Card 1: Industry Leaders */}
-              <div className="relative group self-start lg:translate-x-2 xl:translate-x-6 hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-48 sm:w-56 h-32 sm:h-36 rounded-[28px] overflow-hidden border-2 border-purple-400/40 bg-[#1e1035]/80 shadow-2xl backdrop-blur-sm">
+          {/* 3D FLOATING WINGS */}
+          <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-8 relative z-10 preserve-3d">
+            {/* LEFT WING: Floating 3D Cards */}
+            <div className="flex flex-col gap-6 sm:gap-10 items-start w-full lg:w-auto">
+              {/* Card 1: Industry Leaders (Executive Boardroom) */}
+              <div className="relative group self-start lg:translate-x-2 xl:translate-x-6 animate-float-3d-1 preserve-3d">
+                {/* 3D Backlight Glow */}
+                <div className="absolute -inset-1 rounded-[30px] bg-gradient-to-r from-purple-600/30 to-brand/30 blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                
+                <div className="w-52 sm:w-60 h-34 sm:h-40 rounded-[28px] overflow-hidden border-2 border-purple-300/40 bg-[#190b2b]/90 shadow-[0_20px_45px_rgba(0,0,0,0.65)] ring-1 ring-white/20 backdrop-blur-md transition-all duration-500 group-hover:scale-[1.03] group-hover:border-purple-300/70 group-hover:shadow-[0_25px_55px_rgba(124,58,237,0.4)]">
                   <img 
                     src="/assets/hero-leaders.jpg" 
                     alt="Industry Leaders" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 opacity-95 brightness-105"
                   />
+                  {/* 3D Specular Sheen Gradient */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                {/* Purple Badge: Industry Leaders */}
-                <div className="absolute -bottom-3 left-4 rounded-full bg-[#7c3aed] px-3.5 py-1 text-[11px] text-white shadow-lg ring-1 ring-white/20 flex items-center gap-1">
+
+                {/* 3D Floating Badge: Industry Leaders */}
+                <div className="absolute -bottom-3.5 left-4 rounded-full bg-gradient-to-r from-[#7c3aed] to-[#9333ea] px-4 py-1.5 text-[11px] text-white shadow-[0_8px_20px_rgba(124,58,237,0.6)] ring-1 ring-white/30 flex items-center gap-1.5 transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-0.5">
                   <span className="font-normal text-white/90">Industry</span>
-                  <strong className="font-bold text-white">Leaders</strong>
+                  <strong className="font-bold text-white tracking-wide">Leaders</strong>
                 </div>
-                {/* Floating Square Purple Pill with Bar Chart */}
-                <div className="absolute -right-3 top-8 size-7 rounded-lg bg-[#9333ea] grid place-items-center text-white shadow-lg ring-1 ring-white/20">
+
+                {/* 3D Micro Emblem: Bar Chart */}
+                <div className="absolute -right-3 top-8 size-8 rounded-xl bg-gradient-to-br from-[#a855f7] to-[#7c3aed] grid place-items-center text-white shadow-[0_8px_20px_rgba(147,51,234,0.5)] ring-1 ring-white/30 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                   <BarChart2 className="size-4" />
                 </div>
               </div>
 
-              {/* Card 2: Empowering Growth */}
-              <div className="relative group self-start sm:translate-x-4 lg:translate-x-8 xl:translate-x-16 hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-56 sm:w-64 h-24 sm:h-28 rounded-full overflow-hidden border-2 border-purple-400/40 bg-[#1e1035]/80 shadow-2xl backdrop-blur-sm">
+              {/* Card 2: Empowering Growth (3D Cloud Analytics Visualization) */}
+              <div className="relative group self-start sm:translate-x-4 lg:translate-x-8 xl:translate-x-16 animate-float-3d-2 preserve-3d">
+                {/* 3D Backlight Glow */}
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-brand/30 to-purple-600/30 blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+
+                <div className="w-60 sm:w-72 h-26 sm:h-30 rounded-full overflow-hidden border-2 border-purple-300/40 bg-[#190b2b]/90 shadow-[0_20px_45px_rgba(0,0,0,0.65)] ring-1 ring-white/20 backdrop-blur-md transition-all duration-500 group-hover:scale-[1.03] group-hover:border-purple-300/70 group-hover:shadow-[0_25px_55px_rgba(204,0,230,0.4)]">
                   <img 
                     src="/assets/hero-robothand.jpg" 
                     alt="Empowering Growth" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 opacity-95 brightness-105"
                   />
+                  {/* 3D Specular Sheen */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                {/* Purple Badge: Empowering Growth */}
-                <div className="absolute -bottom-3 right-4 rounded-full bg-[#7c3aed] px-3.5 py-1 text-[11px] text-white shadow-lg ring-1 ring-white/20 flex items-center gap-1">
+
+                {/* 3D Floating Badge: Empowering Growth */}
+                <div className="absolute -bottom-3.5 right-6 rounded-full bg-gradient-to-r from-[#9333ea] to-[#c026d3] px-4 py-1.5 text-[11px] text-white shadow-[0_8px_20px_rgba(192,38,211,0.6)] ring-1 ring-white/30 flex items-center gap-1.5 transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-0.5">
                   <span className="font-normal text-white/90">Empowering</span>
-                  <strong className="font-bold text-white">Growth</strong>
+                  <strong className="font-bold text-white tracking-wide">Growth</strong>
                 </div>
-                {/* Sparkle Star */}
-                <Sparkles className="absolute -top-3 right-8 size-4 text-purple-300 animate-pulse" />
+
+                {/* 3D Sparkle Star */}
+                <Sparkles className="absolute -top-3 right-10 size-4 text-purple-300 animate-pulse" />
               </div>
             </div>
 
-            {/* RIGHT WING: Floating Pill Elements matching screenshot */}
-            <div className="flex flex-col gap-6 sm:gap-8 items-end w-full lg:w-auto mt-4 lg:mt-0">
-              {/* Card 3: Trusted Partner */}
-              <div className="relative group self-end lg:-translate-x-2 xl:-translate-x-6 hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-40 sm:w-48 h-52 sm:h-60 rounded-[32px] overflow-hidden border-2 border-purple-400/40 bg-[#1e1035]/80 shadow-2xl backdrop-blur-sm">
+            {/* RIGHT WING: Floating 3D Cards */}
+            <div className="flex flex-col gap-6 sm:gap-10 items-end w-full lg:w-auto mt-4 lg:mt-0">
+              {/* Card 3: Trusted Partner (Distinguished Executive Consultant) */}
+              <div className="relative group self-end lg:-translate-x-2 xl:-translate-x-6 animate-float-3d-2 preserve-3d">
+                {/* 3D Backlight Glow */}
+                <div className="absolute -inset-1 rounded-[34px] bg-gradient-to-r from-brand/30 to-purple-600/30 blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+
+                <div className="w-44 sm:w-52 h-56 sm:h-64 rounded-[32px] overflow-hidden border-2 border-purple-300/40 bg-[#190b2b]/90 shadow-[0_20px_45px_rgba(0,0,0,0.65)] ring-1 ring-white/20 backdrop-blur-md transition-all duration-500 group-hover:scale-[1.03] group-hover:border-purple-300/70 group-hover:shadow-[0_25px_55px_rgba(124,58,237,0.4)]">
                   <img 
                     src="/assets/hero-consultant.jpg" 
                     alt="Trusted Partner" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    className="w-full h-full object-cover object-top group-hover:scale-108 transition-transform duration-700 opacity-95 brightness-105"
                   />
+                  {/* 3D Specular Sheen */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                {/* Purple Badge: Trusted Partner */}
-                <div className="absolute -bottom-3 right-2 rounded-full bg-[#7c3aed] px-3.5 py-1 text-[11px] text-white shadow-lg ring-1 ring-white/20 flex items-center gap-1">
+
+                {/* 3D Floating Badge: Trusted Partner */}
+                <div className="absolute -bottom-3.5 right-3 rounded-full bg-gradient-to-r from-[#7c3aed] to-[#9333ea] px-4 py-1.5 text-[11px] text-white shadow-[0_8px_20px_rgba(124,58,237,0.6)] ring-1 ring-white/30 flex items-center gap-1.5 transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-0.5">
                   <span className="font-normal text-white/90">Trusted</span>
-                  <strong className="font-bold text-white">Partner</strong>
+                  <strong className="font-bold text-white tracking-wide">Partner</strong>
                 </div>
-                {/* Floating Square Purple Pill with Lightning Zap */}
-                <div className="absolute -left-3 top-14 size-7 rounded-lg bg-[#9333ea] grid place-items-center text-white shadow-lg ring-1 ring-white/20">
+
+                {/* 3D Micro Emblem: Lightning Zap */}
+                <div className="absolute -left-3 top-16 size-8 rounded-xl bg-gradient-to-br from-[#a855f7] to-[#7c3aed] grid place-items-center text-white shadow-[0_8px_20px_rgba(147,51,234,0.5)] ring-1 ring-white/30 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
                   <Zap className="size-4 fill-current" />
                 </div>
               </div>
 
-              {/* Card 4: Proven Expertise */}
-              <div className="relative group self-end sm:-translate-x-4 lg:-translate-x-8 xl:-translate-x-16 hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-56 sm:w-64 h-24 sm:h-28 rounded-full overflow-hidden border-2 border-purple-400/40 bg-[#1e1035]/80 shadow-2xl backdrop-blur-sm">
+              {/* Card 4: Proven Expertise (3D AI Copilot Neural Core) */}
+              <div className="relative group self-end sm:-translate-x-4 lg:-translate-x-8 xl:-translate-x-16 animate-float-3d-1 preserve-3d">
+                {/* 3D Backlight Glow */}
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-purple-600/30 to-brand/30 blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+
+                <div className="w-60 sm:w-72 h-26 sm:h-30 rounded-full overflow-hidden border-2 border-purple-300/40 bg-[#190b2b]/90 shadow-[0_20px_45px_rgba(0,0,0,0.65)] ring-1 ring-white/20 backdrop-blur-md transition-all duration-500 group-hover:scale-[1.03] group-hover:border-purple-300/70 group-hover:shadow-[0_25px_55px_rgba(204,0,230,0.4)]">
                   <img 
                     src="/assets/hero-ai-bot.jpg" 
                     alt="Proven Expertise" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 opacity-95 brightness-105"
                   />
+                  {/* 3D Specular Sheen */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                {/* Purple Badge: Proven Expertise */}
-                <div className="absolute -bottom-3 left-6 rounded-full bg-[#7c3aed] px-3.5 py-1 text-[11px] text-white shadow-lg ring-1 ring-white/20 flex items-center gap-1">
+
+                {/* 3D Floating Badge: Proven Expertise */}
+                <div className="absolute -bottom-3.5 left-6 rounded-full bg-gradient-to-r from-[#9333ea] to-[#c026d3] px-4 py-1.5 text-[11px] text-white shadow-[0_8px_20px_rgba(192,38,211,0.6)] ring-1 ring-white/30 flex items-center gap-1.5 transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-0.5">
                   <span className="font-normal text-white/90">Proven</span>
-                  <strong className="font-bold text-white">Expertise</strong>
+                  <strong className="font-bold text-white tracking-wide">Expertise</strong>
                 </div>
-                {/* Sparkle Star */}
-                <Sparkles className="absolute -top-3 right-10 size-4 text-purple-300 animate-pulse" />
+
+                {/* 3D Sparkle Star */}
+                <Sparkles className="absolute -top-3 right-12 size-4 text-purple-300 animate-pulse" />
               </div>
             </div>
           </div>
