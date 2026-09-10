@@ -483,10 +483,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               {isDark ? <Sun className="size-4 text-amber-400" /> : <Moon className="size-4" />}
             </button>
 
-            {/* SIGNATURE WHITE PILL "Contact Us" BUTTON matching screenshot */}
+            {/* SIGNATURE WHITE PILL "Contact Us" BUTTON */}
             <Link
               to="/contact"
-              className="hidden sm:inline-flex items-center justify-center rounded-full bg-white text-navy font-bold px-6 py-2.5 text-sm shadow-md hover:bg-white/90 hover:scale-[1.02] active:scale-98 transition-all border border-black/5"
+              className="hidden sm:inline-flex items-center justify-center rounded-full bg-white text-slate-900 dark:text-slate-900 font-bold px-6 py-2.5 text-sm shadow-md hover:bg-white/90 hover:scale-[1.02] active:scale-98 transition-all border border-black/10"
             >
               Contact Us
             </Link>
