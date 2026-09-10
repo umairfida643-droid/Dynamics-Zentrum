@@ -1,143 +1,92 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Rocket, Building, Factory, Landmark, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowRight, Rocket, Building, Factory, Landmark } from 'lucide-react';
 
-interface BusinessSegment {
+interface SegmentItem {
   title: string;
-  headline: string;
+  subtitle: string;
   description: string;
-  badge: string;
   icon: React.ReactNode;
-  features: string[];
-  recommendedApps: string;
+  slug: string;
 }
 
-const BUSINESS_SEGMENTS: BusinessSegment[] = [
+const SEGMENTS: SegmentItem[] = [
   {
     title: 'Startups',
-    headline: 'Agile, cost-effective solutions to set a strong foundation for growth.',
-    description: 'Rapid, lightweight Microsoft cloud setups engineered for early-stage momentum with minimal IT overhead and transparent fixed-scope rollout.',
-    badge: 'Fast-Track Onboarding',
+    subtitle: 'Agile, cost-effective solutions to set a strong foundation for growth.',
+    description: 'Fast-track cloud provisioning, automated UK chart of accounts, and flexible scalability with zero IT overhead.',
     icon: <Rocket className="size-6 text-brand" />,
-    features: [
-      'Rapid Dynamics 365 Business Central Cloud provisioning',
-      'Out-of-the-box standard UK chart of accounts & VAT',
-      'Flexible month-to-month scalability as you hire'
-    ],
-    recommendedApps: 'Business Central Cloud · Microsoft 365 · Copilot'
+    slug: 'business-central'
   },
   {
     title: 'Small Businesses',
-    headline: 'Scalable tools to drive efficiency, productivity, and customer engagement.',
-    description: 'Replace fragmented spreadsheets and legacy desktop accounting with an integrated, intelligent business management platform.',
-    badge: 'Operational Efficiency',
+    subtitle: 'Scalable tools to drive efficiency, productivity, and customer engagement.',
+    description: 'Replace fragmented spreadsheets with connected invoicing, automated bank feeds, and real-time inventory control.',
     icon: <Building className="size-6 text-purple" />,
-    features: [
-      'Connected invoicing, inventory tracking, and purchasing',
-      'Automated customer sales follow-ups and lead tracking',
-      'Real-time cash flow telemetry and automated bank feeds'
-    ],
-    recommendedApps: 'Business Central · Dynamics 365 Sales · Power BI'
+    slug: 'business-central'
   },
   {
     title: 'Medium Businesses',
-    headline: 'Advanced solutions to streamline operations and boost profitability.',
-    description: 'Unify multi-location warehouses, international customer accounts, and complex supplier chains under unified operational controls.',
-    badge: 'Multi-Entity Scale',
+    subtitle: 'Advanced solutions to streamline operations and boost profitability.',
+    description: 'Unified multi-warehouse management, consolidated ledgers, and automated supplier procurement approval chains.',
     icon: <Factory className="size-6 text-sky" />,
-    features: [
-      'Advanced multi-site warehouse and logistics management',
-      'Consolidated multi-currency ledgers and departmental budgets',
-      'Automated supplier procurement workflows and approval hierarchies'
-    ],
-    recommendedApps: 'Business Central / Finance · Supply Chain · Power Automate'
+    slug: 'finance'
   },
   {
     title: 'Large Enterprises',
-    headline: 'Enterprise-grade solutions designed to optimise processes and accelerate success.',
-    description: 'Global-scale ERP, mission-critical telemetry, multi-tier data sovereignty, and dedicated enterprise SLA governance.',
-    badge: 'Tier-1 Architecture',
+    subtitle: 'Enterprise-grade solutions designed to optimise processes and accelerate success.',
+    description: 'High-throughput posting, Direct Lake Fabric replication, multi-tier data sovereignty, and dedicated 24/7 UK SLA.',
     icon: <Landmark className="size-6 text-emerald-500" />,
-    features: [
-      'Dynamics 365 Finance & Operations with high-throughput posting',
-      'Direct Lake replication to Microsoft Fabric and Azure Data Lake',
-      'Strict FCA, SOX, and ISO 27001 regulatory compliance matrices'
-    ],
-    recommendedApps: 'D365 Finance & Operations · Customer Insights · Fabric Lakehouse'
+    slug: 'finance'
   }
 ];
 
 export const BusinessSizeSection: React.FC = () => {
   return (
-    <section className="px-6 py-20 bg-muted/20 dark:bg-navy-card/20 border-b border-black/5 dark:border-white/5">
+    <section className="px-6 py-20 bg-surface dark:bg-navy-dark border-b border-black/5 dark:border-white/5">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-brand/5 px-3.5 py-1.5 ring-1 ring-brand/20 dark:bg-brand/10 mx-auto">
-            <Sparkles className="size-3.5 text-brand" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
-              Tailored by Company Scale
-            </span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-navy dark:text-foreground leading-tight">
+        {/* Centered Heading matching Dynamics Square UK Section 6 */}
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-navy dark:text-foreground leading-tight">
             Smart AI Solutions for Every Business
           </h2>
-
-          <p className="mt-2 text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
             Stay agile and adaptable with modern AI solutions meant to give you the required competitive edge. Dynamics Zentrum empowers businesses of all sizes to harness Microsoft Dynamics 365 solutions tailored for their growth. We are a dedicated Microsoft Dynamics CRM partner and ERP expert delivering value to:
           </p>
         </div>
 
+        {/* 4 Cards in a Row matching card-667 card-667-hover */}
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {BUSINESS_SEGMENTS.map((seg) => (
+          {SEGMENTS.map((seg) => (
             <div
               key={seg.title}
-              className="card-3d group flex flex-col justify-between rounded-3xl border border-black/5 bg-card p-6 shadow-sm transition-all hover:border-brand/40 hover:shadow-xl dark:border-white/10 dark:bg-card"
+              className="card-3d group flex flex-col justify-between rounded-3xl border border-black/5 bg-card p-7 shadow-sm transition-all hover:border-brand/40 hover:shadow-xl dark:border-white/10 dark:bg-card"
             >
               <div>
-                <div className="flex items-center justify-between">
-                  <div className="grid size-12 place-items-center rounded-2xl bg-muted/60 dark:bg-muted/20 group-hover:bg-brand/10 transition-colors">
-                    {seg.icon}
-                  </div>
-                  <span className="rounded-full bg-brand/5 px-2.5 py-1 text-[10px] font-semibold text-brand ring-1 ring-brand/15">
-                    {seg.badge}
-                  </span>
+                <div className="grid size-14 place-items-center rounded-2xl bg-muted/60 dark:bg-muted/20 group-hover:bg-brand/10 transition-colors">
+                  {seg.icon}
                 </div>
 
-                <h3 className="mt-5 text-xl font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors">
+                <h3 className="mt-6 text-xl font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors">
                   {seg.title}
                 </h3>
 
-                <div className="mt-2 text-xs font-semibold text-navy/80 dark:text-foreground/80 leading-snug">
-                  "{seg.headline}"
-                </div>
+                <p className="mt-2 text-sm font-semibold text-navy/90 dark:text-foreground/90">
+                  {seg.subtitle}
+                </p>
 
                 <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
                   {seg.description}
                 </p>
-
-                <div className="mt-5 space-y-2 pt-4 border-t border-black/5 dark:border-white/10">
-                  {seg.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
-                      <CheckCircle2 className="size-3.5 text-brand shrink-0 mt-0.5" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-4 rounded-xl bg-muted/40 p-2.5 text-[11px] text-muted-foreground dark:bg-muted/15">
-                  <span className="font-semibold text-navy dark:text-foreground">App Stack: </span>
-                  {seg.recommendedApps}
-                </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/10">
+              <div className="mt-8 pt-4 border-t border-black/5 dark:border-white/10">
                 <Link
                   to="/book-consultation"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand hover:opacity-80 transition-opacity"
+                  className="btn-shine inline-flex w-full items-center justify-center gap-2 rounded-xl bg-card border border-black/10 py-2.5 text-xs font-semibold text-navy hover:border-brand hover:text-brand dark:border-white/10 dark:text-foreground dark:hover:border-brand transition-all"
                 >
-                  <span>Explore Plan for {seg.title}</span>
-                  <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+                  <span>Get Started</span>
+                  <ArrowRight className="size-3.5" />
                 </Link>
               </div>
             </div>

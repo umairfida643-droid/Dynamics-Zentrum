@@ -44,21 +44,21 @@ const UK_OFFICES: UKOffice[] = [
 
 export const CtaBanner: React.FC = () => {
   return (
-    <section className="relative px-6 py-20 bg-muted/20 dark:bg-navy-dark overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute inset-x-0 top-1/3 -translate-y-1/2 h-72 bg-gradient-to-r from-brand/10 via-purple/10 to-sky/10 blur-3xl" />
+    <div className="flex flex-col">
+      {/* SECTION 9: Consultation Banner matching Dynamics Square UK Section 9 */}
+      <section className="relative px-6 py-20 bg-surface dark:bg-navy-dark border-b border-black/5 dark:border-white/5 overflow-hidden">
+        {/* Background ambient lighting */}
+        <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 h-64 bg-gradient-to-r from-brand/10 via-purple/10 to-sky/10 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl">
-        {/* Main CTA Card matching Dynamics Square UK Section 9 */}
-        <div className="rounded-3xl border border-black/5 bg-gradient-to-br from-card to-card/90 p-8 md:p-14 text-center shadow-2xl shadow-navy/10 dark:border-white/10 dark:from-card dark:to-card/90">
+        <div className="relative mx-auto max-w-4xl text-center">
           <div className="inline-flex w-fit items-center gap-2 rounded-full bg-brand/5 px-3.5 py-1.5 ring-1 ring-brand/20 dark:bg-brand/10 mx-auto">
             <Calendar className="size-3.5 text-brand" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
-              Get Started Today
+              Get Started
             </span>
           </div>
 
-          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-navy dark:text-foreground leading-tight">
+          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-navy dark:text-foreground leading-tight">
             Let’s build the future of your business—together!
           </h2>
 
@@ -69,7 +69,7 @@ export const CtaBanner: React.FC = () => {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/book-consultation"
-              className="btn-shine group inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm md:text-base font-semibold text-brand-foreground shadow-xl shadow-brand/25 ring-1 ring-brand hover:scale-[1.02] transition-all"
+              className="btn-shine group inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 text-base font-semibold text-brand-foreground shadow-xl shadow-brand/25 ring-1 ring-brand hover:scale-[1.02] transition-all"
             >
               <span>Book a Free Consultation</span>
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -77,7 +77,7 @@ export const CtaBanner: React.FC = () => {
 
             <a
               href="tel:+442079460920"
-              className="btn-shine inline-flex items-center gap-2 rounded-full bg-background px-7 py-4 text-sm md:text-base font-semibold text-navy dark:text-foreground ring-1 ring-black/10 dark:ring-white/10 hover:bg-muted transition-all"
+              className="btn-shine inline-flex items-center gap-2 rounded-full bg-background px-7 py-4 text-base font-semibold text-navy dark:text-foreground ring-1 ring-black/10 dark:ring-white/10 hover:bg-muted transition-all"
             >
               <Phone className="size-4 text-brand" />
               <span>Call Us: +44 (0) 20 7946 0920</span>
@@ -99,19 +99,31 @@ export const CtaBanner: React.FC = () => {
             </span>
           </div>
         </div>
+      </section>
 
-        {/* Where We Operate: Multi-City UK Locations matching Dynamics Square UK Section 10 */}
-        <div className="mt-20">
-          <div className="text-center max-w-2xl mx-auto">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
-              Our Locations
-            </span>
-            <h3 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-navy dark:text-foreground">
-              Where We Operate
-            </h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              With offices in London, Manchester, and Birmingham, our UK-based team is strategically positioned to support your enterprise on-site anywhere in the country.
-            </p>
+      {/* SECTION 10: Where We Operate matching Dynamics Square UK Section 10 */}
+      <section className="relative px-6 py-20 bg-muted/20 dark:bg-navy-card/20 border-b border-black/5 dark:border-white/5">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-black/5 dark:border-white/5">
+            <div>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
+                Our Physical Presence
+              </span>
+              <h3 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-navy dark:text-foreground">
+                Where we operate
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground max-w-xl">
+                Strategically located across the United Kingdom with certified consultants available on-site.
+              </p>
+            </div>
+
+            <Link
+              to="/contact"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-black/10 bg-card px-6 py-2.5 text-xs font-semibold text-navy hover:bg-muted dark:border-white/10 dark:text-foreground transition-all"
+            >
+              <span>Contact Regional Hub</span>
+              <ArrowRight className="size-3.5 text-brand" />
+            </Link>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -156,21 +168,11 @@ export const CtaBanner: React.FC = () => {
                     <span>{office.hours}</span>
                   </div>
                 </div>
-
-                <div className="mt-5 pt-3 border-t border-black/5 dark:border-white/10">
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-brand hover:opacity-80 transition-opacity"
-                  >
-                    <span>Visit or Contact Hub</span>
-                    <ArrowRight className="size-3" />
-                  </Link>
-                </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };

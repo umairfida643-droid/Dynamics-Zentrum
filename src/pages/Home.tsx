@@ -2,11 +2,11 @@ import React from 'react';
 import { HeroSection } from '../components/home/HeroSection';
 import { StatCounters } from '../components/home/StatCounters';
 import { ServicesGrid } from '../components/home/ServicesGrid';
+import { IndustriesGrid } from '../components/home/IndustriesGrid';
 import { SolutionsGrid } from '../components/home/SolutionsGrid';
 import { BusinessSizeSection } from '../components/home/BusinessSizeSection';
-import { IndustriesGrid } from '../components/home/IndustriesGrid';
-import { DeliveryConsole } from '../components/home/DeliveryConsole';
 import { SpotlightCard } from '../components/home/SpotlightCard';
+import { DeliveryConsole } from '../components/home/DeliveryConsole';
 import { RoiCalculator } from '../components/home/RoiCalculator';
 import { FeaturedRecognitionSection } from '../components/home/FeaturedRecognitionSection';
 import { CtaBanner } from '../components/home/CtaBanner';
@@ -14,37 +14,37 @@ import { CtaBanner } from '../components/home/CtaBanner';
 export const Home: React.FC = () => {
   return (
     <div className="flex flex-col">
-      {/* 1. Hero Banner with Interactive App Navigator & UK Trust Credentials */}
+      {/* SECTION 0: Centered Hero Banner with Floating Showcase & Partner Logos */}
       <HeroSection />
 
-      {/* 2. Dynamics Zentrum: Your Microsoft Solutions Partner (Metrics & Stats) */}
+      {/* SECTION 1: Dynamics Zentrum: Your Microsoft Solutions Partner (Metrics & Overview) */}
       <StatCounters />
 
-      {/* 3. Our Services: Simple, Clear, and Focused (Consulting, Implementation, Upgrade, Ongoing Support) */}
+      {/* SECTION 2: Our Services: Simple, Clear, and Focused (4 Core Cards) */}
       <ServicesGrid />
 
-      {/* 4. Microsoft Business Apps: New Age Solutions to Drive Exponential Growth */}
-      <SolutionsGrid />
-
-      {/* 5. Smart AI Solutions for Every Business (Startups, Small, Medium, Large Enterprises) */}
-      <BusinessSizeSection />
-
-      {/* 6. Your Industry? Our Expertise! (Retail, Education, Manufacturing, Distribution, etc.) */}
+      {/* SECTION 3: Your Industry? Our Expertise! (Tabbed Sector Experience) */}
       <IndustriesGrid />
 
-      {/* 7. Live UK Infrastructure Delivery Console & Telemetry */}
-      <DeliveryConsole />
+      {/* SECTION 5: Microsoft Business Apps: New Age Solutions (Tabbed Apps Experience) */}
+      <SolutionsGrid />
 
-      {/* 8. Delivering Impact Where It Matters Because You Deserve More (4x Revenue, 87% Retention) */}
+      {/* SECTION 6: Smart AI Solutions for Every Business (Startups, Small, Medium, Large) */}
+      <BusinessSizeSection />
+
+      {/* SECTION 7: Delivering Impact Where It Matters Because You Deserve More */}
       <SpotlightCard />
 
-      {/* 9. Interactive ROI & Enterprise TCO Scoping Calculator */}
+      {/* Live Enterprise Infrastructure Diagnostics & Telemetry Console */}
+      <DeliveryConsole />
+
+      {/* Interactive Enterprise ROI & TCO Calculator */}
       <RoiCalculator />
 
-      {/* 10. Featured On & Industry Recognition */}
+      {/* SECTION 8: Featured On & Industry Recognition */}
       <FeaturedRecognitionSection />
 
-      {/* 11. Consultation Booking Banner & Where We Operate (London, Manchester, Birmingham) */}
+      {/* SECTION 9 & 10: Consultation Banner & Where We Operate (London, Manchester, Birmingham) */}
       <CtaBanner />
     </div>
   );

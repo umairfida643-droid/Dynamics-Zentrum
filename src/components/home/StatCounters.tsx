@@ -1,43 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Award, Users, Calendar, Layers } from 'lucide-react';
+import { ArrowRight, Award, CheckCircle2 } from 'lucide-react';
 
 interface MetricItem {
   target: number;
   suffix: string;
-  title: string;
   description: string;
-  icon: React.ReactNode;
 }
 
 const PARTNER_METRICS: MetricItem[] = [
   {
     target: 500,
     suffix: '+',
-    title: 'Successful Implementations',
-    description: 'Innovative implementations delivered with strategy, precision, and success across the UK and EMEA.',
-    icon: <Award className="size-6 text-brand" />
+    description: 'Innovative implementations delivered with strategy, precision, and success.'
   },
   {
     target: 150,
     suffix: '+',
-    title: 'Certified Consultants',
-    description: 'Skilled professionals with deep, industry-specific expertise driving continuous digital innovation.',
-    icon: <Users className="size-6 text-purple" />
+    description: 'Skilled professionals with deep, industry-specific expertise driving innovation.'
   },
   {
     target: 14,
     suffix: '+',
-    title: 'Years of Mastery',
-    description: 'Years of industry mastery, delivering excellence and stability in every Microsoft Dynamics solution.',
-    icon: <Calendar className="size-6 text-brand" />
+    description: 'Years of industry mastery, delivering excellence in every solution.'
   },
   {
     target: 25,
     suffix: '+',
-    title: 'Industries Transformed',
-    description: 'Sectors transformed with cutting-edge ERP, CRM, and cloud business technologies.',
-    icon: <Layers className="size-6 text-sky" />
+    description: 'Industries transformed with cutting-edge technology and innovation.'
   }
 ];
 
@@ -98,63 +88,66 @@ export const StatCounters: React.FC = () => {
   return (
     <section className="relative px-6 py-20 bg-surface dark:bg-navy-dark border-b border-black/5 dark:border-white/5 overflow-hidden">
       <div className="mx-auto max-w-7xl">
-        {/* Section Header mirroring Dynamics Square UK */}
-        <div className="flex flex-col gap-4">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-brand/5 px-3.5 py-1.5 ring-1 ring-brand/20 dark:bg-brand/10">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
-              About Dynamics Zentrum
-            </span>
+        {/* TOP ROW: Two Columns (8 cols left, 4 cols right) matching Dynamics Square UK */}
+        <div className="grid items-end gap-8 lg:grid-cols-12 pb-14 border-b border-black/5 dark:border-white/5">
+          <div className="lg:col-span-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-navy dark:text-foreground leading-tight">
+              Dynamics Zentrum: Your Microsoft Solutions Partner
+            </h2>
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+              As a Microsoft Dynamics 365 implementation partner, we have been consistently delivering impactful solutions, earning trust through innovation &amp; commitment and empowering businesses to achieve excellence, irrespective of the industry. Recognised as a trusted Microsoft Solutions Partner and expert Microsoft Dynamics ERP partner, our team drives successful digital transformations through industry-aligned expertise and strategic execution.
+            </p>
+            <div className="mt-6">
+              <Link
+                to="/about"
+                className="group inline-flex items-center gap-2 text-sm font-semibold text-brand hover:opacity-80 transition-all"
+              >
+                <span>Learn more about us</span>
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
 
-          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <div className="max-w-3xl">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-navy dark:text-foreground leading-tight">
-                Dynamics Zentrum: Your Microsoft Solutions Partner
-              </h2>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-                As a Microsoft Dynamics 365 implementation partner, we have been consistently delivering impactful solutions, earning trust through innovation &amp; commitment and empowering businesses to achieve excellence, irrespective of the industry. Recognised as a trusted Microsoft Solutions Partner and expert Microsoft Dynamics ERP partner, our team drives successful digital transformations through industry-aligned expertise and strategic execution.
-              </p>
+          {/* Right Partner Accreditation Box */}
+          <div className="lg:col-span-4 flex justify-start lg:justify-end">
+            <div className="rounded-3xl border border-brand/20 bg-brand/5 p-6 dark:bg-brand/10 w-full max-w-sm">
+              <div className="flex items-center gap-3">
+                <div className="grid size-12 place-items-center rounded-2xl bg-brand text-white shadow-md shadow-brand/30">
+                  <Award className="size-6" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-brand">
+                    Microsoft Solutions Partner
+                  </div>
+                  <div className="text-xs font-medium text-muted-foreground">
+                    Business Applications · Cloud Partner
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 pt-3 border-t border-brand/15 flex items-center justify-between text-[11px] font-semibold text-navy dark:text-foreground">
+                <span>Verified UK Solutions Partner</span>
+                <span className="text-emerald-500 flex items-center gap-1">
+                  <CheckCircle2 className="size-3.5" />
+                  Active
+                </span>
+              </div>
             </div>
-
-            <Link
-              to="/about"
-              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-black/10 bg-card px-6 py-3 text-sm font-semibold text-navy hover:bg-muted dark:border-white/10 dark:text-foreground transition-all shadow-sm"
-            >
-              <span>Learn More About Us</span>
-              <ArrowRight className="size-4 text-brand" />
-            </Link>
           </div>
         </div>
 
-        {/* 4 Metric Cards */}
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* BOTTOM ROW: 4 Stats matching Dynamics Square UK accive-new-list */}
+        <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
           {PARTNER_METRICS.map((metric, idx) => (
             <div
-              key={metric.title}
-              className="card-3d group relative flex flex-col justify-between rounded-3xl border border-black/5 bg-card p-6 shadow-sm transition-all hover:border-brand/40 hover:shadow-xl dark:border-white/10 dark:bg-card"
+              key={idx}
+              className="flex flex-col border-l-2 border-brand/30 pl-5 py-2 group hover:border-brand transition-colors"
             >
-              <div>
-                <div className="grid size-12 place-items-center rounded-2xl bg-muted/60 dark:bg-muted/20 group-hover:bg-brand/10 transition-colors">
-                  {metric.icon}
-                </div>
-
-                <div className="mt-6 text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-brand via-brand to-purple bg-clip-text text-transparent">
-                  <AnimatedCounter target={metric.target} suffix={metric.suffix} delay={idx * 150} />
-                </div>
-
-                <h3 className="mt-2 text-base font-semibold text-navy dark:text-foreground">
-                  {metric.title}
-                </h3>
-
-                <p className="mt-2 text-xs md:text-sm text-muted-foreground leading-relaxed">
-                  {metric.description}
-                </p>
+              <div className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-brand via-brand to-purple bg-clip-text text-transparent">
+                <AnimatedCounter target={metric.target} suffix={metric.suffix} delay={idx * 150} />
               </div>
-
-              <div className="mt-6 flex items-center gap-2 pt-4 border-t border-black/5 dark:border-white/10 text-xs font-semibold text-brand">
-                <CheckCircle2 className="size-4" />
-                <span>Verified UK Milestone</span>
-              </div>
+              <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                {metric.description}
+              </p>
             </div>
           ))}
         </div>

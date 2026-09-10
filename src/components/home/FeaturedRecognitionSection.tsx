@@ -1,18 +1,18 @@
 import React from 'react';
-import { Award, Newspaper } from 'lucide-react';
+import { Award, CheckCircle2 } from 'lucide-react';
 
 const RECOGNITION_ITEMS = [
   {
     name: 'Clutch UK',
     category: 'Top B2B Microsoft Partner',
     rating: '4.9 / 5.0 Rating',
-    description: 'Recognized for high client satisfaction and technical excellence in enterprise ERP deployments.'
+    description: 'Recognized for client satisfaction and technical excellence in enterprise ERP deployments.'
   },
   {
     name: 'Manufacturing Today',
     category: 'Industry Feature',
-    rating: 'Supply Chain Spotlight',
-    description: 'Featured for implementing modern smart factory architectures on Dynamics 365.'
+    rating: 'Smart Factory Spotlight',
+    description: 'Featured for implementing modern manufacturing architectures on Dynamics 365.'
   },
   {
     name: 'Forbes Technology Council',
@@ -38,23 +38,17 @@ export const FeaturedRecognitionSection: React.FC = () => {
   return (
     <section className="px-6 py-20 bg-surface dark:bg-navy-dark border-b border-black/5 dark:border-white/5">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-4 text-center max-w-3xl mx-auto">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-brand/5 px-3.5 py-1.5 ring-1 ring-brand/20 dark:bg-brand/10 mx-auto">
-            <Newspaper className="size-3.5 text-brand" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
-              Industry Authority
-            </span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-navy dark:text-foreground leading-tight">
-            Featured On &amp; Industry Recognition
+        {/* Centered Heading matching Dynamics Square UK Section 8 */}
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-navy dark:text-foreground leading-tight">
+            Featured On
           </h2>
-
-          <p className="mt-2 text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
             We are proud to share that our work and insights have appeared across respected platforms like Clutch, Manufacturing Today, Forbes Technology Council, Tech Partner Impact Awards, and ERPSoftwareBlog, reflecting the trust and recognition we carry.
           </p>
         </div>
 
+        {/* 5 Recognition Cards in a Row */}
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {RECOGNITION_ITEMS.map((item) => (
             <div
@@ -82,7 +76,8 @@ export const FeaturedRecognitionSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/10 flex items-center gap-1 text-[11px] font-semibold text-brand">
+              <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/10 flex items-center gap-1.5 text-[11px] font-semibold text-brand">
+                <CheckCircle2 className="size-3.5" />
                 <span>Verified Publication</span>
               </div>
             </div>
