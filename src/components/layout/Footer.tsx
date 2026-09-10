@@ -101,8 +101,17 @@ export const Footer: React.FC = () => {
 
             {/* Microsoft Partner Badges */}
             <div className="mt-8">
-              <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                Microsoft Partner
+              <div className="mb-3">
+                <img 
+                  src="/assets/microsoft-partner.png" 
+                  alt="Microsoft Solutions Partner" 
+                  className="h-8 w-auto object-contain block dark:hidden"
+                />
+                <img 
+                  src="/assets/microsoft-partner-dark.png" 
+                  alt="Microsoft Solutions Partner" 
+                  className="h-8 w-auto object-contain hidden dark:block"
+                />
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 {[

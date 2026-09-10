@@ -133,24 +133,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               />
             </Link>
 
-            {/* Microsoft Solutions Partner Emblem side-by-side matching target site */}
+            {/* Microsoft Solutions Partner Official Logo side-by-side matching target site */}
             <div className="hidden sm:flex items-center pl-3 border-l border-black/10 dark:border-white/10">
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <span className="grid grid-cols-2 gap-0.5 size-3.5">
-                    <span className="bg-[#f25022] rounded-[0.5px]" />
-                    <span className="bg-[#7fba00] rounded-[0.5px]" />
-                    <span className="bg-[#00a4ef] rounded-[0.5px]" />
-                    <span className="bg-[#ffb900] rounded-[0.5px]" />
-                  </span>
-                  <span className="text-[11px] font-bold tracking-tight text-navy dark:text-foreground leading-tight">
-                    Microsoft
-                  </span>
-                </div>
-                <span className="text-[9px] font-semibold text-muted-foreground uppercase tracking-wider">
-                  Solutions Partner
-                </span>
-              </div>
+              <img 
+                src="/assets/microsoft-partner.png" 
+                alt="Microsoft Solutions Partner" 
+                className="h-8 md:h-9 w-auto object-contain block dark:hidden"
+              />
+              <img 
+                src="/assets/microsoft-partner-dark.png" 
+                alt="Microsoft Solutions Partner" 
+                className="h-8 md:h-9 w-auto object-contain hidden dark:block"
+              />
             </div>
           </div>
 

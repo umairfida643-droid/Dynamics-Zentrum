@@ -4,7 +4,6 @@ import {
   ArrowRight, 
   ArrowRightCircle,
   Sparkles, 
-  ShieldCheck, 
   Database, 
   CheckCircle2,
   Building2,
@@ -236,8 +235,16 @@ export const HeroSection: React.FC = () => {
             </span>
             <div className="flex flex-wrap items-center gap-6 sm:gap-8 font-semibold">
               <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
-                <ShieldCheck className="size-4 text-brand" />
-                Microsoft Solutions Partner
+                <img 
+                  src="/assets/microsoft-partner.png" 
+                  alt="Microsoft Solutions Partner" 
+                  className="h-5 w-auto object-contain block dark:hidden"
+                />
+                <img 
+                  src="/assets/microsoft-partner-dark.png" 
+                  alt="Microsoft Solutions Partner" 
+                  className="h-5 w-auto object-contain hidden dark:block"
+                />
               </span>
               <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
                 <Database className="size-4 text-purple" />

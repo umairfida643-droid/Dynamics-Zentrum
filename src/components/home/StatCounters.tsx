@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface MetricItem {
   target: number;
@@ -111,18 +111,22 @@ export const StatCounters: React.FC = () => {
           {/* Right Partner Accreditation Box */}
           <div className="lg:col-span-4 flex justify-start lg:justify-end">
             <div className="rounded-3xl border border-brand/20 bg-brand/5 p-6 dark:bg-brand/10 w-full max-w-sm">
-              <div className="flex items-center gap-3">
-                <div className="grid size-12 place-items-center rounded-2xl bg-brand text-white shadow-md shadow-brand/30">
-                  <Award className="size-6" />
-                </div>
+              <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-brand">
-                    Microsoft Solutions Partner
-                  </div>
-                  <div className="text-xs font-medium text-muted-foreground">
-                    Business Applications · Cloud Partner
-                  </div>
+                  <img 
+                    src="/assets/microsoft-partner.png" 
+                    alt="Microsoft Solutions Partner" 
+                    className="h-10 w-auto object-contain block dark:hidden"
+                  />
+                  <img 
+                    src="/assets/microsoft-partner-dark.png" 
+                    alt="Microsoft Solutions Partner" 
+                    className="h-10 w-auto object-contain hidden dark:block"
+                  />
                 </div>
+                <span className="rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-bold text-brand ring-1 ring-brand/20">
+                  Accredited
+                </span>
               </div>
               <div className="mt-4 pt-3 border-t border-brand/15 flex items-center justify-between text-[11px] font-semibold text-navy dark:text-foreground">
                 <span>Verified UK Solutions Partner</span>
