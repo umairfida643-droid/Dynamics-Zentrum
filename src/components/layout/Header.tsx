@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   ChevronDown, 
@@ -21,6 +21,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const location = useLocation();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +32,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
   }, []);
 
   useEffect(() => {
-    // Check initial dark mode or system pref
     if (document.documentElement.classList.contains('dark')) {
       setIsDark(true);
     }
@@ -48,6 +48,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
       setIsDark(true);
       localStorage.setItem('theme', 'dark');
     }
+  };
+
+  const handleMouseEnter = (label: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActiveMenu(label);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveMenu(null);
+    }, 150); // 150ms graceful hover grace period to prevent accidental closing
   };
 
   // Close mobile menu on route change
@@ -91,10 +105,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'border-b border-black/5 bg-background/85 backdrop-blur-xl dark:border-white/5 shadow-sm' 
-        : 'border-b border-transparent bg-background/40 backdrop-blur-md'
+        ? 'border-b border-black/10 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-[#0d0211]/95 shadow-sm' 
+        : 'border-b border-transparent bg-white/70 backdrop-blur-md dark:bg-[#0d0211]/70'
     }`}>
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6 relative">
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Dynamics Zentrum home">
           <img 
@@ -115,14 +129,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             item.children ? (
               <div 
                 key={item.label}
-                className="relative"
-                onMouseEnter={() => setActiveMenu(item.label)}
-                onMouseLeave={() => setActiveMenu(null)}
+                className="relative py-2"
+                onMouseEnter={() => handleMouseEnter(item.label)}
+                onMouseLeave={handleMouseLeave}
               >
                 <button 
-                  className={`group flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium transition-colors ${
-                    activeMenu === item.label ? 'text-brand' : 'text-muted-foreground hover:text-brand'
+                  className={`group flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium transition-colors rounded-lg ${
+                    activeMenu === item.label 
+                      ? 'text-brand font-semibold bg-brand/5 dark:bg-brand/10' 
+                      : 'text-muted-foreground hover:text-brand'
                   }`}
+                  onClick={() => setActiveMenu(activeMenu === item.label ? null : item.label)}
                 >
                   {item.label}
                   <ChevronDown className={`size-3.5 transition-transform duration-200 ${
@@ -132,20 +149,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
                 {/* Mega Menu Popover */}
                 {activeMenu === item.label && (
-                  <div className={`absolute top-full pt-2 w-[640px] max-w-[calc(100vw-2rem)] animate-in fade-in slide-in-from-top-2 duration-200 ${
-                    item.label === 'Industries' 
-                      ? 'right-0' 
-                      : item.label === 'Services' 
-                      ? 'left-1/2 -translate-x-1/2' 
-                      : 'left-0'
-                  }`}>
-                    <div className="rounded-2xl border border-black/5 bg-card/95 p-4 shadow-2xl shadow-navy/15 backdrop-blur-2xl dark:border-white/10 dark:bg-card/95">
-                      <div className="grid grid-cols-2 gap-1.5">
+                  <div 
+                    className={`absolute top-full pt-1 w-[680px] max-w-[calc(100vw-2rem)] z-[100] animate-in fade-in slide-in-from-top-2 duration-150 ${
+                      item.label === 'Industries' 
+                        ? 'right-0' 
+                        : item.label === 'Services' 
+                        ? 'left-0' 
+                        : 'left-1/2 -translate-x-1/2'
+                    }`}
+                    onMouseEnter={() => handleMouseEnter(item.label)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    {/* Solid Opaque Background Card with strong shadow */}
+                    <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-[0_25px_60px_-15px_rgba(20,3,26,0.3)] dark:border-white/15 dark:bg-[#150520] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)]">
+                      <div className="grid grid-cols-2 gap-2">
                         {item.children.map((child) => (
                           <Link
                             key={child.to}
                             to={child.to}
-                            className="group rounded-xl p-3 transition-all hover:bg-brand/5 dark:hover:bg-brand/10"
+                            className="group flex flex-col rounded-xl p-3 transition-all hover:bg-brand/5 dark:hover:bg-brand/10 border border-transparent hover:border-brand/10"
                           >
                             <div className="text-sm font-semibold text-navy dark:text-foreground group-hover:text-brand transition-colors">
                               {child.title}
@@ -159,7 +181,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                         ))}
                       </div>
 
-                      <div className="mt-3 flex items-center justify-between border-t border-black/5 pt-3 dark:border-white/10">
+                      <div className="mt-4 flex items-center justify-between border-t border-black/10 pt-3 dark:border-white/10">
                         <Link
                           to={item.to}
                           className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-brand hover:opacity-80 transition-opacity"
@@ -176,7 +198,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               <Link
                 key={item.label}
                 to={item.to}
-                className={`px-3.5 py-2 text-sm font-medium transition-colors ${
+                className={`px-3.5 py-2 text-sm font-medium transition-colors rounded-lg ${
                   location.pathname === item.to 
                     ? 'text-brand font-semibold' 
                     : 'text-muted-foreground hover:text-brand'
@@ -231,7 +253,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
       {/* Mobile Drawer */}
       {isMobileOpen && (
-        <div className="xl:hidden border-t border-black/5 bg-card/95 backdrop-blur-2xl dark:border-white/10 animate-in slide-in-from-top-2 duration-200">
+        <div className="xl:hidden border-t border-black/10 bg-white/98 dark:border-white/10 dark:bg-[#150520] animate-in slide-in-from-top-2 duration-200 shadow-xl">
           <nav className="mx-auto max-w-7xl px-6 py-6 flex flex-col gap-1.5">
             {navItems.map((item) => (
               <Link
@@ -245,7 +267,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               </Link>
             ))}
 
-            <div className="pt-4 border-t border-black/5 dark:border-white/10 flex items-center justify-between px-2">
+            <div className="pt-4 border-t border-black/10 dark:border-white/10 flex items-center justify-between px-2">
               <span className="text-sm font-medium text-muted-foreground">Dark Theme</span>
               <button
                 onClick={toggleTheme}

@@ -1,4 +1,4 @@
-﻿/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
   content: [
@@ -8,6 +8,21 @@ export default {
   theme: {
     extend: {
       colors: {
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        card: {
+          DEFAULT: 'var(--card)',
+          foreground: 'var(--card-foreground)',
+        },
+        popover: {
+          DEFAULT: 'var(--card)',
+          foreground: 'var(--card-foreground)',
+        },
+        muted: {
+          DEFAULT: 'var(--muted)',
+          foreground: 'var(--muted-foreground)',
+        },
+        border: 'var(--border)',
         brand: {
           DEFAULT: 'var(--brand)',
           foreground: 'var(--brand-foreground)',
@@ -30,7 +45,7 @@ export default {
         surface: 'var(--surface)',
       },
       fontFamily: {
-        display: [' Sora', 'Manrope', 'sans-serif'],
+        display: ['Sora', 'Manrope', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
       animation: {
