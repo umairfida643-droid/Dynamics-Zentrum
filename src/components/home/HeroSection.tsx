@@ -5,314 +5,357 @@ import {
   Sparkles, 
   ShieldCheck, 
   Database, 
-  Cpu, 
-  Workflow, 
-  Lock, 
-  Activity, 
   CheckCircle2,
-  Server
+  Building2,
+  TrendingUp,
+  Calendar,
+  Layers,
+  MapPin,
+  Award
 } from 'lucide-react';
-import { TRUST_BADGES } from '../../data/siteData';
+
+interface AppPreview {
+  id: string;
+  name: string;
+  badge: string;
+  headline: string;
+  description: string;
+  impactLabel: string;
+  impactValue: string;
+  bullets: string[];
+  link: string;
+}
+
+const APPS_DATA: AppPreview[] = [
+  {
+    id: 'business-central',
+    name: 'Business Central',
+    badge: 'AI-Enabled ERP',
+    headline: 'Smart, AI-enabled ERP for SMBs',
+    description: 'Outperform smartly with the all-in-one cloud ERP trusted by over 30,000 organisations worldwide to connect finance, sales, service, and supply chain.',
+    impactLabel: 'Operations Velocity',
+    impactValue: '+45%',
+    bullets: [
+      'Copilot-powered bank reconciliation & automated cash-flow forecasts',
+      'Unified financials, inventory management, and multi-currency ledgers',
+      'Real-time inventory optimization with demand forecasting'
+    ],
+    link: '/solutions/business-central'
+  },
+  {
+    id: 'finance',
+    name: 'D365 Finance',
+    badge: 'Enterprise Financials',
+    headline: 'Accurate financials, every time, on time',
+    description: 'Boost ROI, cut risks, and automate global financial activities with intelligent automation, predictive insights, and complete UK regulatory compliance.',
+    impactLabel: 'Month-End Close',
+    impactValue: '72h Fast-Track',
+    bullets: [
+      'Multi-entity global consolidations across unlimited legal entities',
+      'HMRC Making Tax Digital (MTD) and automated VAT reconciliation',
+      'AI anomaly detection in vendor payments and expense audits'
+    ],
+    link: '/solutions/finance'
+  },
+  {
+    id: 'sales',
+    name: 'D365 Sales',
+    badge: 'Modern CRM',
+    headline: 'Close deals faster and win more customers',
+    description: 'Leverage embedded Copilot AI to simplify complex B2B sales cycles, prioritise high-intent leads, and automate client engagement across channels.',
+    impactLabel: 'Pipeline Conversion',
+    impactValue: '+34%',
+    bullets: [
+      'Automated email summaries and real-time conversation intelligence',
+      'Predictive opportunity scoring and deal risk forecasting',
+      'Seamless native integration with Microsoft 365, Teams, and Outlook'
+    ],
+    link: '/solutions/sales'
+  },
+  {
+    id: 'power-bi',
+    name: 'Power BI & Fabric',
+    badge: 'Data & Analytics',
+    headline: 'Visualise Data, See Beyond the Numbers',
+    description: 'Transform raw data into real-time actionable intelligence. Connect disparate databases into a unified Microsoft Fabric lakehouse with governed BI.',
+    impactLabel: 'Query Latency',
+    impactValue: '< 1.2s Direct',
+    bullets: [
+      'Executive dashboards with real-time operational telemetry',
+      'Direct Lake connection to OneLake with zero data duplication',
+      'Natural language Copilot Q&A for instant board-ready reports'
+    ],
+    link: '/solutions/power-bi'
+  },
+  {
+    id: 'supply-chain',
+    name: 'Supply Chain',
+    badge: 'Resilient Logistics',
+    headline: 'Secure, smart and optimised Supply Chain',
+    description: 'Be disruption-ready and mitigate supply chain bottlenecks with AI-driven inventory planning, intelligent warehouse management, and real-time vendor tracking.',
+    impactLabel: 'Stockouts Mitigated',
+    impactValue: '-38%',
+    bullets: [
+      'Automated replenishment triggers based on lead-time variances',
+      'Advanced robotics-compatible warehouse management (WMS)',
+      'Multi-tier supplier risk visibility and procurement governance'
+    ],
+    link: '/solutions/supply-chain'
+  },
+  {
+    id: 'customer-service',
+    name: 'Customer Service',
+    badge: 'Omnichannel Care',
+    headline: 'Empower agents to offer great customer experience',
+    description: 'Equip support teams with unified agent desktops, automated sentiment tracking, and Copilot AI to resolve customer queries faster and build lasting loyalty.',
+    impactLabel: 'First-Contact Resolution',
+    impactValue: '91.4%',
+    bullets: [
+      'Omnichannel routing across voice, email, chat, and social portals',
+      'Copilot case summaries and generative troubleshooting drafts',
+      'Comprehensive SLA tracking with automated escalation rules'
+    ],
+    link: '/solutions/customer-service'
+  }
+];
 
 export const HeroSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'erp' | 'ai' | 'integration'>('erp');
+  const [activeAppId, setActiveAppId] = useState<string>('business-central');
+  const activeApp = APPS_DATA.find((a) => a.id === activeAppId) || APPS_DATA[0];
 
   return (
-    <section className="relative overflow-hidden px-6 pt-12 pb-16 md:pt-20 md:pb-24">
-      {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute -top-40 -left-40 size-[34rem] rounded-full bg-brand/12 blur-[130px] animate-float" />
+    <section className="relative overflow-hidden px-6 pt-10 pb-16 md:pt-16 md:pb-24 border-b border-black/5 dark:border-white/5">
+      {/* Ambient background glows matching theme colors */}
+      <div className="pointer-events-none absolute -top-40 -left-40 size-[36rem] rounded-full bg-brand/12 blur-[140px] animate-float" />
       <div 
-        className="pointer-events-none absolute top-1/4 -right-32 size-[30rem] rounded-full bg-purple/15 blur-[130px] animate-float"
+        className="pointer-events-none absolute top-1/4 -right-36 size-[32rem] rounded-full bg-purple/15 blur-[140px] animate-float"
         style={{ animationDelay: '2.5s' }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,58,237,0.07),transparent_65%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,58,237,0.08),transparent_65%)]" />
 
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.05fr)]">
-          {/* Left Column: Copy, CTAs, and Trust Credentials */}
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1.08fr)]">
+          {/* Left Column: Authoritative Copy & Direct CTAs */}
           <div className="flex flex-col gap-6 animate-fade-up">
-            {/* Pulsing Accreditation Badge */}
-            <div className="inline-flex w-fit items-center gap-2 rounded-full bg-brand/5 px-3.5 py-1.5 ring-1 ring-brand/20 dark:bg-brand/10">
-              <span className="relative flex h-2 w-2">
+            {/* Microsoft Solutions Partner Badge */}
+            <div className="inline-flex w-fit items-center gap-2.5 rounded-full bg-brand/5 px-4 py-1.5 ring-1 ring-brand/20 dark:bg-brand/10">
+              <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-brand opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-brand" />
               </span>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand">
                 Microsoft Solutions Partner · Business Applications
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="max-w-[18ch] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-tight text-navy dark:text-foreground text-balance">
-              Engineering Enterprise Agility on{' '}
+            {/* H1 Heading - Dynamics Square UK style */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.04] tracking-tight text-navy dark:text-foreground text-balance">
+              UK's Trusted{' '}
               <span className="bg-gradient-to-r from-brand via-brand to-purple bg-clip-text text-transparent">
                 Microsoft Dynamics 365
-              </span>
+              </span>{' '}
+              Partner
             </h1>
+
+            {/* Punchy Hero Catchphrase */}
+            <div className="text-xl md:text-2xl font-bold tracking-tight text-navy/90 dark:text-foreground/90">
+              When results count,{' '}
+              <span className="text-brand underline decoration-brand/30 decoration-2 underline-offset-4">
+                Dynamics Zentrum delivers!
+              </span>
+            </div>
 
             {/* Lead Narrative */}
             <p className="max-w-xl text-base md:text-lg text-muted-foreground text-pretty leading-relaxed">
-              We design, deploy, and govern mission-critical Dynamics 365 ERP, CRM, and Copilot environments for the UK's most demanding enterprises — delivered by 150+ certified technical specialists.
+              As a certified Microsoft Dynamics 365 partner in the UK, we empower businesses with future-ready technologies that deliver impact. Dominate and thrive with AI-powered Microsoft solutions. With Dynamics Zentrum, your success is powered by years of proven expertise—no matter the industry!
             </p>
 
-            {/* Primary Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+            {/* Main Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-1">
               <Link
                 to="/book-consultation"
-                className="btn-shine group inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 text-sm md:text-base font-semibold text-brand-foreground shadow-xl shadow-brand/25 ring-1 ring-brand transition-all hover:shadow-2xl hover:scale-[1.02]"
+                className="btn-shine group inline-flex items-center gap-2.5 rounded-full bg-brand px-7 py-3.5 text-sm md:text-base font-semibold text-brand-foreground shadow-xl shadow-brand/25 ring-1 ring-brand transition-all hover:shadow-2xl hover:scale-[1.02]"
               >
-                <span>Book Architecture Review</span>
+                <Calendar className="size-4" />
+                <span>Book a Free Consultation</span>
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/solutions"
-                className="btn-shine inline-flex items-center gap-2 rounded-full bg-card/80 px-7 py-3.5 text-sm md:text-base font-semibold text-navy dark:text-foreground ring-1 ring-black/10 backdrop-blur hover:bg-card dark:ring-white/10 transition-all"
+                className="btn-shine inline-flex items-center gap-2 rounded-full bg-card/90 px-7 py-3.5 text-sm md:text-base font-semibold text-navy dark:text-foreground ring-1 ring-black/10 backdrop-blur hover:bg-card dark:ring-white/10 transition-all"
               >
                 <Sparkles className="size-4 text-brand" />
-                <span>Explore Solutions Matrix</span>
+                <span>Explore Solutions</span>
               </Link>
             </div>
 
-            {/* Trust Chips */}
-            <div className="mt-3 flex flex-wrap items-center gap-2">
-              {TRUST_BADGES.map((badge) => (
-                <span
-                  key={badge}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-black/5 bg-card/80 px-3 py-1.5 text-[11px] font-semibold text-navy backdrop-blur dark:border-white/10 dark:text-foreground shadow-xs"
-                >
-                  <ShieldCheck className="size-3.5 text-brand" />
-                  {badge}
-                </span>
-              ))}
+            {/* Trust Note under CTA */}
+            <div className="text-xs font-semibold text-muted-foreground flex items-center gap-2">
+              <CheckCircle2 className="size-4 text-brand shrink-0" />
+              <span>Trusted by 500+ businesses · No obligation · Fast response</span>
+            </div>
+
+            {/* Multi-City UK Presence Bar */}
+            <div className="mt-2 pt-4 border-t border-black/5 dark:border-white/10 flex flex-wrap items-center gap-4 text-xs font-medium text-muted-foreground">
+              <div className="flex items-center gap-1.5 text-navy dark:text-foreground font-semibold">
+                <MapPin className="size-3.5 text-brand" />
+                <span>UK Delivery Hubs:</span>
+              </div>
+              <span className="inline-flex items-center gap-1 rounded-full bg-muted/60 px-2.5 py-1 text-[11px] font-medium">
+                London (City)
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-muted/60 px-2.5 py-1 text-[11px] font-medium">
+                Manchester
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-muted/60 px-2.5 py-1 text-[11px] font-medium">
+                Birmingham
+              </span>
             </div>
           </div>
 
-          {/* Right Column: Interactive Enterprise Operations & Telemetry Cockpit (NO LOGO, REVOLUTIONIZED DESIGN) */}
+          {/* Right Column: Interactive Microsoft Business Applications Navigator Card */}
           <div className="relative mx-auto w-full max-w-xl">
-            {/* Ambient Background Glow behind Cockpit */}
+            {/* Ambient halo behind card */}
             <div className="pointer-events-none absolute -inset-2 rounded-3xl bg-gradient-to-r from-brand/20 via-purple/20 to-sky/20 blur-2xl" />
 
-            {/* The Main Cockpit Glass Container */}
-            <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/95 p-6 shadow-2xl shadow-navy/20 backdrop-blur-2xl dark:border-white/15 dark:bg-[#12031a]/95">
-              {/* Telemetry Header */}
+            <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-card/95 p-6 shadow-2xl shadow-navy/15 backdrop-blur-xl dark:border-white/15 dark:bg-card/95">
+              {/* Card Header */}
               <div className="flex items-center justify-between border-b border-black/5 pb-4 dark:border-white/10">
                 <div className="flex items-center gap-2.5">
-                  <div className="grid size-8 place-items-center rounded-lg bg-brand/10 text-brand">
-                    <Server className="size-4" />
+                  <div className="grid size-9 place-items-center rounded-xl bg-brand/10 text-brand ring-1 ring-brand/20">
+                    <Layers className="size-4.5" />
                   </div>
                   <div>
                     <div className="text-xs font-bold text-navy dark:text-foreground flex items-center gap-2">
-                      <span>UK Sovereign Cloud Fabric</span>
+                      <span>Microsoft Business Apps Navigator</span>
                       <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
                     </div>
-                    <div className="text-[10px] text-muted-foreground">London (UK South) · Active-Active Cluster</div>
+                    <div className="text-[10px] text-muted-foreground">Intelligent ERP, CRM & AI Acceleration</div>
                   </div>
                 </div>
 
-                <div className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-500 ring-1 ring-emerald-500/20 tabular-nums">
-                  99.99% SLA
+                <span className="rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-semibold text-brand ring-1 ring-brand/20 uppercase tracking-wider">
+                  {activeApp.badge}
+                </span>
+              </div>
+
+              {/* Quick App Selector Pills */}
+              <div className="mt-4 grid grid-cols-3 gap-1.5 rounded-2xl bg-muted/60 p-1.5 dark:bg-muted/20">
+                {APPS_DATA.map((app) => {
+                  const isSelected = app.id === activeAppId;
+                  return (
+                    <button
+                      key={app.id}
+                      onClick={() => setActiveAppId(app.id)}
+                      className={`flex items-center justify-center gap-1.5 rounded-xl py-2 px-2 text-xs font-semibold transition-all ${
+                        isSelected
+                          ? 'bg-card text-brand shadow-sm ring-1 ring-brand/20 dark:bg-card'
+                          : 'text-muted-foreground hover:text-navy dark:hover:text-foreground'
+                      }`}
+                    >
+                      <span className="truncate">{app.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Active App Details Showcase */}
+              <div className="mt-5 space-y-4 animate-in fade-in duration-200">
+                <div>
+                  <h3 className="text-lg font-bold text-navy dark:text-foreground leading-snug">
+                    {activeApp.headline}
+                  </h3>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    {activeApp.description}
+                  </p>
                 </div>
-              </div>
 
-              {/* Layer Selection Tabs */}
-              <div className="mt-4 grid grid-cols-3 gap-1.5 rounded-xl bg-muted/60 p-1 dark:bg-muted/20">
-                <button
-                  onClick={() => setActiveTab('erp')}
-                  className={`flex items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-semibold transition-all ${
-                    activeTab === 'erp' 
-                      ? 'bg-card text-brand shadow-xs dark:bg-card/80' 
-                      : 'text-muted-foreground hover:text-navy dark:hover:text-foreground'
-                  }`}
-                >
-                  <Database className="size-3.5" />
-                  <span>Core ERP</span>
-                </button>
-
-                <button
-                  onClick={() => setActiveTab('ai')}
-                  className={`flex items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-semibold transition-all ${
-                    activeTab === 'ai' 
-                      ? 'bg-card text-brand shadow-xs dark:bg-card/80' 
-                      : 'text-muted-foreground hover:text-navy dark:hover:text-foreground'
-                  }`}
-                >
-                  <Sparkles className="size-3.5" />
-                  <span>Copilot AI</span>
-                </button>
-
-                <button
-                  onClick={() => setActiveTab('integration')}
-                  className={`flex items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-semibold transition-all ${
-                    activeTab === 'integration' 
-                      ? 'bg-card text-brand shadow-xs dark:bg-card/80' 
-                      : 'text-muted-foreground hover:text-navy dark:hover:text-foreground'
-                  }`}
-                >
-                  <Workflow className="size-3.5" />
-                  <span>Integration</span>
-                </button>
-              </div>
-
-              {/* Dynamic Telemetry Display based on Tab */}
-              <div className="mt-5 space-y-3.5">
-                {activeTab === 'erp' && (
-                  <div className="space-y-3 animate-in fade-in duration-200">
-                    <div className="rounded-2xl border border-black/5 bg-muted/30 p-3.5 dark:border-white/5 dark:bg-muted/10 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="grid size-9 place-items-center rounded-xl bg-purple/10 text-purple">
-                          <Database className="size-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-navy dark:text-foreground">Dynamics 365 Finance & Operations</div>
-                          <div className="text-[10px] text-muted-foreground">Multi-entity consolidation across 14 ledgers</div>
-                        </div>
-                      </div>
-                      <span className="text-xs font-bold text-emerald-500">Live Sync</span>
-                    </div>
-
-                    <div className="rounded-2xl border border-black/5 bg-muted/30 p-3.5 dark:border-white/5 dark:bg-muted/10 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="grid size-9 place-items-center rounded-xl bg-brand/10 text-brand">
-                          <Activity className="size-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-navy dark:text-foreground">Transaction Throughput</div>
-                          <div className="text-[10px] text-muted-foreground">Sub-second posting latency</div>
-                        </div>
-                      </div>
-                      <span className="text-xs font-mono font-semibold text-brand tabular-nums">48.2k tx/sec</span>
-                    </div>
-
-                    <div className="rounded-2xl border border-black/5 bg-muted/30 p-3.5 dark:border-white/5 dark:bg-muted/10 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="grid size-9 place-items-center rounded-xl bg-sky/20 text-sky">
-                          <Lock className="size-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-navy dark:text-foreground">FCA & SOX Regulatory Guardrails</div>
-                          <div className="text-[10px] text-muted-foreground">Automated field audit & segregation of duties</div>
-                        </div>
-                      </div>
-                      <span className="text-xs font-bold text-sky">Enforced</span>
-                    </div>
+                {/* Key Impact Metric Banner */}
+                <div className="flex items-center justify-between rounded-2xl border border-brand/15 bg-brand/5 p-3.5 dark:bg-brand/10">
+                  <div className="flex items-center gap-2.5">
+                    <TrendingUp className="size-4 text-brand" />
+                    <span className="text-xs font-semibold text-navy dark:text-foreground">
+                      {activeApp.impactLabel}
+                    </span>
                   </div>
-                )}
-
-                {activeTab === 'ai' && (
-                  <div className="space-y-3 animate-in fade-in duration-200">
-                    <div className="rounded-2xl border border-brand/20 bg-brand/5 p-3.5 dark:bg-brand/10 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="grid size-9 place-items-center rounded-xl bg-brand text-white">
-                          <Sparkles className="size-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-navy dark:text-foreground">Copilot Grounding Engine</div>
-                          <div className="text-[10px] text-muted-foreground">Operating inside tenant Dataverse boundary</div>
-                        </div>
-                      </div>
-                      <span className="text-xs font-semibold text-brand">Zero Leakage</span>
-                    </div>
-
-                    <div className="rounded-2xl border border-black/5 bg-muted/30 p-3.5 dark:border-white/5 dark:bg-muted/10 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="grid size-9 place-items-center rounded-xl bg-emerald-500/10 text-emerald-500">
-                          <CheckCircle2 className="size-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-navy dark:text-foreground">Autonomous Month-End Close</div>
-                          <div className="text-[10px] text-muted-foreground">Discrepancy reconciliation AI agent</div>
-                        </div>
-                      </div>
-                      <span className="text-xs font-mono font-semibold text-emerald-500 tabular-nums">72h Close</span>
-                    </div>
-
-                    <div className="rounded-2xl border border-black/5 bg-muted/30 p-3.5 dark:border-white/5 dark:bg-muted/10 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="grid size-9 place-items-center rounded-xl bg-purple/10 text-purple">
-                          <Cpu className="size-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-navy dark:text-foreground">Azure OpenAI Dedicated Gateway</div>
-                          <div className="text-[10px] text-muted-foreground">GPT-4o fine-tuned for UK commercial tax</div>
-                        </div>
-                      </div>
-                      <span className="text-xs font-mono font-semibold text-purple tabular-nums">14ms Latency</span>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'integration' && (
-                  <div className="space-y-3 animate-in fade-in duration-200">
-                    <div className="rounded-2xl border border-black/5 bg-muted/30 p-3.5 dark:border-white/5 dark:bg-muted/10 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="grid size-9 place-items-center rounded-xl bg-sky/20 text-sky">
-                          <Workflow className="size-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-navy dark:text-foreground">Azure Integration Services Hub</div>
-                          <div className="text-[10px] text-muted-foreground">Event-driven Service Bus queues & Logic Apps</div>
-                        </div>
-                      </div>
-                      <span className="text-xs font-bold text-emerald-500">0 Dropped</span>
-                    </div>
-
-                    <div className="rounded-2xl border border-black/5 bg-muted/30 p-3.5 dark:border-white/5 dark:bg-muted/10 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="grid size-9 place-items-center rounded-xl bg-brand/10 text-brand">
-                          <Database className="size-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-navy dark:text-foreground">Direct Lake Fabric Replication</div>
-                          <div className="text-[10px] text-muted-foreground">OneLake Delta Parquet live streaming</div>
-                        </div>
-                      </div>
-                      <span className="text-xs font-mono font-semibold text-brand tabular-nums">&lt; 3m Sync</span>
-                    </div>
-
-                    <div className="rounded-2xl border border-black/5 bg-muted/30 p-3.5 dark:border-white/5 dark:bg-muted/10 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="grid size-9 place-items-center rounded-xl bg-purple/10 text-purple">
-                          <Lock className="size-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-navy dark:text-foreground">Bank & 3PL EDI Gateways</div>
-                          <div className="text-[10px] text-muted-foreground">ISO 20022 and BACS encrypted pipelines</div>
-                        </div>
-                      </div>
-                      <span className="text-xs font-bold text-purple">Certified</span>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Bottom Quick-Action in Cockpit */}
-              <div className="mt-5 pt-4 border-t border-black/5 dark:border-white/10 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="size-2 rounded-full bg-brand" />
-                  <span className="text-xs font-medium text-muted-foreground">Live Telemetry Diagnostics Active</span>
+                  <span className="text-sm font-bold text-brand tabular-nums">
+                    {activeApp.impactValue}
+                  </span>
                 </div>
-                <Link
-                  to="/services/erp-audit"
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-brand hover:opacity-80 transition-opacity"
-                >
-                  <span>Request Infrastructure Audit</span>
-                  <ArrowRight className="size-3" />
-                </Link>
+
+                {/* Feature Bullets */}
+                <div className="space-y-2">
+                  {activeApp.bullets.map((b, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
+                      <CheckCircle2 className="size-3.5 text-brand shrink-0 mt-0.5" />
+                      <span>{b}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Card Action */}
+                <div className="mt-4 pt-4 border-t border-black/5 dark:border-white/10 flex items-center justify-between">
+                  <Link
+                    to={activeApp.link}
+                    className="group inline-flex items-center gap-2 text-xs font-semibold text-brand hover:opacity-80 transition-opacity"
+                  >
+                    <span>Explore {activeApp.name}</span>
+                    <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+
+                  <Link
+                    to="/book-consultation"
+                    className="rounded-full bg-navy px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand transition-colors dark:bg-white dark:text-navy dark:hover:bg-brand dark:hover:text-white"
+                  >
+                    Get Free Scope
+                  </Link>
+                </div>
               </div>
             </div>
 
-            {/* 2 Floating Glass Badges */}
-            <div className="hidden sm:flex absolute -bottom-5 -left-4 z-20 items-center gap-2.5 rounded-2xl bg-white/95 px-4 py-2.5 text-navy shadow-xl border border-black/5 dark:bg-[#150520]/95 dark:text-foreground dark:border-white/10 backdrop-blur-md animate-float">
-              <ShieldCheck className="size-4 text-emerald-500" />
-              <div className="text-xs font-semibold">Zero-Downtime Cutover Guarantee</div>
+            {/* Floating Accreditations / Proof points */}
+            <div className="hidden sm:flex absolute -bottom-5 -left-4 z-20 items-center gap-2.5 rounded-2xl bg-card px-4 py-2.5 text-navy shadow-xl border border-black/5 dark:bg-card dark:text-foreground dark:border-white/10 backdrop-blur-md animate-float">
+              <Award className="size-4 text-brand" />
+              <div className="text-xs font-semibold">14+ Years Enterprise Excellence</div>
             </div>
 
             <div 
-              className="hidden sm:flex absolute -top-4 -right-4 z-20 items-center gap-2.5 rounded-2xl bg-white/95 px-4 py-2.5 text-navy shadow-xl border border-black/5 dark:bg-[#150520]/95 dark:text-foreground dark:border-white/10 backdrop-blur-md animate-float"
+              className="hidden sm:flex absolute -top-4 -right-4 z-20 items-center gap-2.5 rounded-2xl bg-card px-4 py-2.5 text-navy shadow-xl border border-black/5 dark:bg-card dark:text-foreground dark:border-white/10 backdrop-blur-md animate-float"
               style={{ animationDelay: '1.8s' }}
             >
-              <Sparkles className="size-4 text-brand" />
-              <div className="text-xs font-semibold">150+ Certified Lead Architects</div>
+              <ShieldCheck className="size-4 text-emerald-500" />
+              <div className="text-xs font-semibold">150+ Certified Lead Consultants</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Trust & Ecosystem Strip */}
+        <div className="mt-16 pt-8 border-t border-black/5 dark:border-white/10">
+          <div className="flex flex-wrap items-center justify-between gap-6 text-xs text-muted-foreground">
+            <span className="font-semibold uppercase tracking-widest text-navy/70 dark:text-foreground/70">
+              Ecosystem Accreditations:
+            </span>
+            <div className="flex flex-wrap items-center gap-6 sm:gap-8 font-semibold">
+              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
+                <ShieldCheck className="size-4 text-brand" />
+                Microsoft Solutions Partner
+              </span>
+              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
+                <Database className="size-4 text-purple" />
+                Cloud Solution Provider (CSP)
+              </span>
+              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
+                <Sparkles className="size-4 text-brand" />
+                AI Cloud Partner
+              </span>
+              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
+                <ShieldCheck className="size-4 text-emerald-500" />
+                ISO 27001 Certified
+              </span>
+              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
+                <Building2 className="size-4 text-sky" />
+                Crown Commercial Service Supplier
+              </span>
             </div>
           </div>
         </div>

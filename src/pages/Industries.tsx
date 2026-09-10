@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Building2 } from 'lucide-react';
+import { ArrowRight, Building2, CheckCircle2 } from 'lucide-react';
 import { INDUSTRIES_DATA } from '../data/siteData';
 
 export const Industries: React.FC = () => {
@@ -8,13 +8,13 @@ export const Industries: React.FC = () => {
     <div className="py-16 px-6 max-w-7xl mx-auto">
       <div className="text-center max-w-3xl mx-auto">
         <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
-          Sector Precision
+          Industry Focus
         </span>
-        <h1 className="mt-4 text-4xl md:text-6xl font-semibold tracking-tight text-navy dark:text-foreground">
-          Industry-Specific Dynamics Solutions
+        <h1 className="mt-4 text-4xl md:text-6xl font-semibold tracking-tight text-navy dark:text-foreground leading-tight">
+          Your Industry? Our Expertise!
         </h1>
         <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-          Pre-built industry IP, compliance frameworks, and regulatory accelerators across 16 core commercial and public sectors.
+          Dynamics Zentrum brings decades of profound industry expertise that merges ongoing industry insights with Microsoft technology to help you capitalise on your biggest opportunities. As a trusted Microsoft Dynamics 365 implementation partner, we deliver solutions customised for your business growth.
         </p>
       </div>
 
@@ -23,7 +23,7 @@ export const Industries: React.FC = () => {
           <Link
             key={ind.slug}
             to={`/industries/${ind.slug}`}
-            className="card-3d group flex flex-col justify-between rounded-2xl border border-black/5 bg-card p-6 shadow-sm transition-all hover:border-brand/40 hover:shadow-xl dark:border-white/10 dark:bg-card"
+            className="card-3d group flex flex-col justify-between rounded-3xl border border-black/5 bg-card p-6 shadow-sm transition-all hover:border-brand/40 hover:shadow-xl dark:border-white/10 dark:bg-card"
           >
             <div>
               <div className="flex items-center justify-between">
@@ -38,6 +38,11 @@ export const Industries: React.FC = () => {
               <p className="mt-2 text-xs text-muted-foreground leading-relaxed line-clamp-3">
                 {ind.summary}
               </p>
+
+              <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/10 text-[11px] text-muted-foreground flex items-center gap-1.5">
+                <CheckCircle2 className="size-3 text-brand shrink-0" />
+                <span className="truncate">{ind.regulatoryFocus}</span>
+              </div>
             </div>
 
             <div className="mt-6 flex items-center justify-between border-t border-black/5 pt-4 dark:border-white/10 text-xs font-semibold text-brand">

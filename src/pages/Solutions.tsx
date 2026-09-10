@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Layers, CheckCircle2 } from 'lucide-react';
 import { SOLUTIONS_DATA } from '../data/siteData';
 
 export const Solutions: React.FC = () => {
@@ -16,11 +16,11 @@ export const Solutions: React.FC = () => {
         <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
           Technology Ecosystem
         </span>
-        <h1 className="mt-4 text-4xl md:text-6xl font-semibold tracking-tight text-navy dark:text-foreground">
-          Microsoft Dynamics 365 Solutions
+        <h1 className="mt-4 text-4xl md:text-6xl font-semibold tracking-tight text-navy dark:text-foreground leading-tight">
+          Microsoft Business Apps: New Age Solutions
         </h1>
         <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-          Comprehensive enterprise business applications tailored to unify financials, supply chains, sales, and citizen services.
+          The world is changing, and so is technology! If you're struggling to thrive in a fast-paced market, don't worry. Dynamics Zentrum will address your business challenges with modern, AI-powered Microsoft Business Apps tailored to your unique requirements.
         </p>
 
         {/* Category Filters */}
@@ -60,31 +60,31 @@ export const Solutions: React.FC = () => {
               <h3 className="mt-5 text-xl font-semibold text-navy dark:text-foreground">
                 {sol.title}
               </h3>
-              <p className="mt-2 text-xs font-semibold text-purple">
+
+              <div className="mt-1 text-xs font-semibold text-brand">
                 {sol.tagline}
-              </p>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+              </div>
+
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                 {sol.summary}
               </p>
 
-              <div className="mt-6 space-y-2 border-t border-black/5 pt-4 dark:border-white/10 text-xs text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="size-4 text-brand" />
-                  <span>Native Microsoft Copilot Intelligence</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="size-4 text-emerald-500" />
-                  <span>Target: {sol.targetMarket}</span>
-                </div>
+              <div className="mt-6 space-y-2 border-t border-black/5 pt-4 dark:border-white/10">
+                {sol.coreCapabilities.slice(0, 2).map((cap, idx) => (
+                  <div key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <CheckCircle2 className="size-3.5 text-brand shrink-0" />
+                    <span className="line-clamp-1">{cap.name}: {cap.highlight}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-black/5 dark:border-white/10">
+            <div className="mt-8 border-t border-black/5 pt-4 dark:border-white/10">
               <Link
                 to={`/solutions/${sol.slug}`}
-                className="btn-shine inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand/10 py-2.5 text-xs font-semibold text-brand hover:bg-brand hover:text-white transition-colors"
+                className="btn-shine inline-flex w-full items-center justify-center gap-2 rounded-xl bg-card border border-black/10 py-2.5 text-xs font-semibold text-navy hover:border-brand hover:text-brand dark:border-white/10 dark:text-foreground dark:hover:border-brand transition-all"
               >
-                <span>View Architecture & Modules</span>
+                <span>View Full Solution Scope</span>
                 <ArrowRight className="size-3.5" />
               </Link>
             </div>
