@@ -16,41 +16,41 @@ export const HeroSection: React.FC = () => {
       <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[500px] rounded-full bg-[#7c3aed]/20 blur-[140px]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(168,85,247,0.12),transparent_70%)]" />
 
-      {/* 2. Signature Animated Concentric Dashed Orbital Rings with Orbiting Nodes */}
-      <div className="pointer-events-none absolute top-[380px] sm:top-[360px] left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 flex items-center justify-center select-none">
+      {/* 2. Signature Animated Concentric Dashed Orbital Rings with Orbiting Nodes matching reference */}
+      <div className="pointer-events-none absolute top-[380px] sm:top-[360px] left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] flex items-center justify-center select-none">
         {/* Ring 1 (Inner) - Clockwise Rotation */}
-        <div className="absolute size-[460px] sm:size-[540px] rounded-full border border-dashed border-white/20 dark:border-purple-300/20 animate-spin-orbit-cw">
+        <div className="absolute size-[460px] sm:size-[540px] rounded-full border-[1.5px] border-dashed border-white/35 dark:border-purple-300/40 orbit-spin-cw">
           {/* Orbiting Satellite Node 1 */}
-          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 size-3 rounded-full bg-gradient-to-r from-brand to-purple-400 opacity-75 shadow-[0_0_12px_rgba(204,0,230,0.9)]" />
+          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 size-3 rounded-full bg-brand shadow-[0_0_12px_#cc00e6]" />
           {/* Orbiting Satellite Node 2 */}
-          <div className="absolute -bottom-1 left-1/4 size-2 rounded-full bg-white/70 shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+          <div className="absolute -bottom-1 left-1/4 size-2 rounded-full bg-white shadow-[0_0_8px_#ffffff]" />
         </div>
 
         {/* Ring 2 (Medium) - Counter-Clockwise Rotation */}
-        <div className="absolute size-[680px] sm:size-[780px] rounded-full border border-dashed border-white/15 dark:border-purple-300/15 animate-spin-orbit-ccw">
+        <div className="absolute size-[680px] sm:size-[780px] rounded-full border-[1.5px] border-dashed border-white/30 dark:border-purple-300/35 orbit-spin-ccw">
           {/* Orbiting Satellite Node 1 */}
-          <div className="absolute top-1/4 -left-1.5 size-2.5 rounded-full bg-purple-300/80 shadow-[0_0_10px_rgba(168,85,247,0.8)]" />
+          <div className="absolute top-1/4 -left-1.5 size-2.5 rounded-full bg-sky shadow-[0_0_10px_#f5a8ff]" />
           {/* Orbiting Satellite Node 2 */}
-          <div className="absolute bottom-1/3 -right-1 size-2 rounded-full bg-pink-400/70 shadow-[0_0_8px_rgba(244,114,182,0.8)]" />
+          <div className="absolute bottom-1/3 -right-1 size-2 rounded-full bg-pink-400 shadow-[0_0_8px_#f472b6]" />
         </div>
 
         {/* Ring 3 (Large) - Clockwise Rotation */}
-        <div className="absolute size-[940px] sm:size-[1060px] rounded-full border border-dashed border-white/12 dark:border-purple-300/12 animate-spin-orbit-outer">
+        <div className="absolute size-[940px] sm:size-[1060px] rounded-full border-[1.5px] border-dashed border-white/25 dark:border-purple-300/30 orbit-spin-outer">
           {/* Orbiting Satellite Node 1 */}
-          <div className="absolute -top-1.5 right-1/3 size-3 rounded-full bg-gradient-to-r from-purple-500 to-sky opacity-70 shadow-[0_0_12px_rgba(192,132,252,0.8)]" />
+          <div className="absolute -top-1.5 right-1/3 size-3 rounded-full bg-purple shadow-[0_0_12px_#a855f7]" />
           {/* Orbiting Satellite Node 2 */}
-          <div className="absolute bottom-1/4 left-1/5 size-2 rounded-full bg-white/60 shadow-[0_0_8px_rgba(255,255,255,0.7)]" />
+          <div className="absolute bottom-1/4 left-1/5 size-2 rounded-full bg-white shadow-[0_0_8px_#ffffff]" />
         </div>
 
         {/* Ring 4 (Extra Large) - Counter-Clockwise Rotation */}
-        <div className="absolute size-[1220px] sm:size-[1360px] rounded-full border border-dashed border-white/8 dark:border-purple-300/8 animate-spin-orbit-ccw">
+        <div className="absolute size-[1220px] sm:size-[1360px] rounded-full border border-dashed border-white/20 dark:border-purple-300/25 orbit-spin-ccw">
           {/* Orbiting Satellite Node 1 */}
-          <div className="absolute top-1/3 -right-1.5 size-2.5 rounded-full bg-brand/60 shadow-[0_0_10px_rgba(204,0,230,0.7)]" />
+          <div className="absolute top-1/3 -right-1.5 size-2.5 rounded-full bg-brand shadow-[0_0_10px_#cc00e6]" />
         </div>
 
         {/* Ring 5 (Ambient Outermost) - Slow Rotation */}
-        <div className="absolute size-[1520px] sm:size-[1680px] rounded-full border border-dotted border-white/5 dark:border-purple-300/5 animate-spin-orbit-outer">
-          <div className="absolute -bottom-1 right-1/4 size-2 rounded-full bg-purple-300/40" />
+        <div className="absolute size-[1520px] sm:size-[1680px] rounded-full border border-dotted border-white/15 dark:border-purple-300/20 orbit-spin-outer">
+          <div className="absolute -bottom-1 right-1/4 size-2.5 rounded-full bg-purple-300 shadow-[0_0_8px_#c084fc]" />
         </div>
       </div>
 

@@ -218,3 +218,37 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: 0 0 10px rgba(204, 0, 230, 0.5);
   border: 2px solid white;
 }
+
+/* Orbiting Background Circles Keyframes */
+@keyframes orbit-cw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-ccw {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.orbit-spin-cw {
+  animation: orbit-cw 45s linear infinite;
+  will-change: transform;
+}
+
+.orbit-spin-ccw {
+  animation: orbit-ccw 60s linear infinite;
+  will-change: transform;
+}
+
+.orbit-spin-outer {
+  animation: orbit-cw 80s linear infinite;
+  will-change: transform;
+}
