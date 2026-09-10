@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ScrollToTop } from './components/common/ScrollToTop';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { SearchModal } from './components/SearchModal';
@@ -20,6 +21,7 @@ export function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="flex min-h-screen flex-col bg-surface text-navy dark:bg-navy-dark dark:text-foreground transition-colors duration-300">
         <Header onOpenSearch={() => setIsSearchOpen(true)} />
         <main className="flex-1">
