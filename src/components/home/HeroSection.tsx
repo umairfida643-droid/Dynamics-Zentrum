@@ -1,275 +1,204 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowRight, 
   ArrowRightCircle,
   Sparkles, 
-  Database, 
-  CheckCircle2,
-  Building2,
-  MapPin,
-  Award,
-  Cpu,
-  Server
+  BarChart2, 
+  Zap,
+  MessageSquare
 } from 'lucide-react';
 
-interface HeroAppTab {
-  id: string;
-  name: string;
-  badge: string;
-  headline: string;
-  kpi: string;
-  kpiLabel: string;
-  link: string;
-}
-
-const HERO_APPS: HeroAppTab[] = [
-  {
-    id: 'bc',
-    name: 'Business Central',
-    badge: 'AI-Enabled ERP',
-    headline: 'Unified Financials, Supply Chain & Operations for Mid-Market',
-    kpi: '+45%',
-    kpiLabel: 'Operational Velocity',
-    link: '/solutions/business-central'
-  },
-  {
-    id: 'fin',
-    name: 'D365 Finance',
-    badge: 'Enterprise Core',
-    headline: 'Multi-Entity Ledger Consolidation & HMRC MTD Automation',
-    kpi: '72h',
-    kpiLabel: 'Fast-Track Close',
-    link: '/solutions/finance'
-  },
-  {
-    id: 'crm',
-    name: 'D365 Sales & CRM',
-    badge: 'Copilot AI Sales',
-    headline: 'Predictive Pipeline Scoring & Contextual Customer Engagement',
-    kpi: '+34%',
-    kpiLabel: 'Win-Rate Lift',
-    link: '/solutions/sales'
-  },
-  {
-    id: 'scm',
-    name: 'Supply Chain',
-    badge: 'Intelligent Logistics',
-    headline: 'Disruption-Ready Inventory Replenishment & Advanced WMS',
-    kpi: '-38%',
-    kpiLabel: 'Stockout Reduction',
-    link: '/solutions/supply-chain'
-  },
-  {
-    id: 'fabric',
-    name: 'Power BI & Fabric',
-    badge: 'Direct Lake AI',
-    headline: 'Zero-Copy Analytics Lakehouse with Natural Language Queries',
-    kpi: '< 1.2s',
-    kpiLabel: 'Query Latency',
-    link: '/solutions/power-bi'
-  }
-];
-
 export const HeroSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('bc');
-  const selectedApp = HERO_APPS.find(a => a.id === activeTab) || HERO_APPS[0];
-
   return (
-    <section className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24 border-b border-black/5 dark:border-white/5">
-      {/* Background ambient lighting and orbital glows */}
-      <div className="pointer-events-none absolute -top-48 left-1/2 -translate-x-1/2 size-[44rem] rounded-full bg-brand/10 blur-[150px] animate-float" />
-      <div 
-        className="pointer-events-none absolute top-40 right-1/4 size-[30rem] rounded-full bg-purple/15 blur-[140px] animate-float" 
-        style={{ animationDelay: '2.5s' }}
-      />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(124,58,237,0.06),transparent_70%)]" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#24133d] via-[#1a0e30] to-[#120824] text-white pt-12 pb-16 lg:pt-16 lg:pb-20 border-b border-white/5">
+      {/* 1. Background Ambient Radial Glows */}
+      <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[650px] rounded-full bg-[#ec4899]/15 blur-[160px]" />
+      <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[500px] rounded-full bg-[#7c3aed]/20 blur-[140px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(168,85,247,0.12),transparent_70%)]" />
 
-      {/* Decorative Orbit Rings behind center matching screenshot */}
-      <div className="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 -z-10 size-[600px] rounded-full border border-dashed border-purple-500/20 dark:border-white/15" />
-      <div className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 -z-10 size-[850px] rounded-full border border-dashed border-purple-500/15 dark:border-white/10" />
-      <div className="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 -z-10 size-[1100px] rounded-full border border-dashed border-purple-500/10 dark:border-white/[0.07]" />
+      {/* 2. Signature Concentric Dashed Orbital Rings matching screenshot */}
+      <div className="pointer-events-none absolute top-[360px] left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 size-[620px] rounded-full border border-dashed border-white/15" />
+      <div className="pointer-events-none absolute top-[360px] left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 size-[920px] rounded-full border border-dashed border-white/10" />
+      <div className="pointer-events-none absolute top-[360px] left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 size-[1220px] rounded-full border border-dashed border-white/[0.06]" />
 
-      <div className="mx-auto max-w-7xl px-6">
-        {/* CENTERED HERO HEADER - Exact match with user reference screenshot */}
-        <div className="mx-auto max-w-4xl text-center animate-fade-up">
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
+        {/* CENTER STAGE: Headline, Narrative & CTA */}
+        <div className="mx-auto max-w-4xl text-center">
           {/* Top Pre-title: UK's Trusted Microsoft Dynamics 365 Partner */}
-          <div className="text-sm sm:text-base md:text-lg font-semibold text-navy/80 dark:text-white/90 tracking-normal mb-3 sm:mb-4">
+          <div className="text-sm sm:text-base font-medium text-white/90 tracking-wide mb-3 sm:mb-4">
             UK's Trusted Microsoft Dynamics 365 Partner
           </div>
 
-          {/* Main H1 Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-navy dark:text-white leading-[1.12] text-balance">
+          {/* Main Huge H1 Headline */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold tracking-tight text-white leading-[1.12] text-balance">
             When results count,<br className="hidden sm:inline" />{' '}
-            <span className="text-brand dark:text-white">Dynamics Zentrum delivers!</span>
+            <span>Dynamics Zentrum delivers!</span>
           </h1>
 
           {/* Centered Descriptive Narrative */}
-          <p className="mx-auto mt-6 max-w-3xl text-base sm:text-lg md:text-xl text-muted-foreground dark:text-white/80 leading-relaxed text-pretty font-normal">
+          <p className="mx-auto mt-6 max-w-3xl text-sm sm:text-base md:text-lg text-white/80 leading-relaxed font-normal">
             As a certified Microsoft Dynamics 365 partner in the UK, we empower businesses with future-ready technologies that deliver impact. Dominate and thrive with AI-powered Microsoft solutions. With Dynamics Zentrum, your success is powered by years of proven expertise—no matter the industry!
           </p>
 
-          {/* Centered CTA Button matching Dynamics Square UK */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          {/* Primary CTA Button: Coral/Rose Gradient Pill */}
+          <div className="mt-8 sm:mt-10 flex flex-col items-center justify-center">
             <Link
               to="/book-consultation"
-              className="btn-shine group inline-flex items-center gap-3 rounded-full bg-brand px-8 py-4 text-base font-semibold text-brand-foreground shadow-xl shadow-brand/25 ring-1 ring-brand hover:scale-[1.02] hover:shadow-2xl hover:shadow-brand/30 transition-all"
+              className="btn-shine group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#ff5252] via-[#ff4081] to-[#e040fb] px-8 py-4 text-base sm:text-lg font-bold text-white shadow-2xl shadow-rose-600/35 ring-1 ring-white/25 hover:scale-[1.03] transition-all"
             >
+              <Sparkles className="size-5 text-white animate-pulse" />
               <span>Book a Free Consultation</span>
               <ArrowRightCircle className="size-5 transition-transform group-hover:translate-x-1" />
             </Link>
 
-            <Link
-              to="/solutions"
-              className="btn-shine inline-flex items-center gap-2 rounded-full bg-card px-7 py-4 text-base font-semibold text-navy dark:text-foreground ring-1 ring-black/10 hover:bg-muted dark:ring-white/10 transition-all"
-            >
-              <Sparkles className="size-4 text-brand" />
-              <span>Explore Solutions</span>
-            </Link>
-          </div>
-
-          {/* Special Trust Note */}
-          <div className="mt-4 flex items-center justify-center gap-2 text-xs font-semibold text-muted-foreground">
-            <CheckCircle2 className="size-4 text-brand" />
-            <span>Trusted by 500+ businesses · No obligation · Fast response</span>
+            {/* Trust Assurance Subtext */}
+            <div className="mt-3.5 text-xs sm:text-sm text-white/65 font-medium tracking-wide">
+              Trusted by 500+ businesses · No obligation · Fast response
+            </div>
           </div>
         </div>
 
-        {/* FLOATING SHOWCASE BANNER - Matching Dynamics Square UK home-floting-image */}
-        <div className="mt-14 mx-auto max-w-5xl">
-          <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-card/95 p-6 md:p-8 shadow-2xl shadow-navy/15 backdrop-blur-xl dark:border-white/15 dark:bg-card/95">
-            {/* Top Bar of Floating Console */}
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-black/5 pb-4 dark:border-white/10">
-              <div className="flex items-center gap-3">
-                <div className="grid size-9 place-items-center rounded-xl bg-brand/10 text-brand ring-1 ring-brand/20">
-                  <Server className="size-4.5" />
+        {/* INTERACTIVE FLOATING WINGS & CENTER AI SILHOUETTE */}
+        <div className="relative mt-8 lg:mt-2 min-h-[380px] sm:min-h-[420px] flex items-center justify-center">
+          {/* Center Bottom: Holographic Digital Neural AI Head Watermark */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none w-[320px] sm:w-[400px] h-[340px] opacity-75 select-none z-0">
+            <img 
+              src="/assets/neural-head.svg" 
+              alt="Neural AI Architecture" 
+              className="w-full h-full object-contain animate-pulse-glow"
+            />
+          </div>
+
+          {/* LEFT WING: Floating Pill Elements matching screenshot */}
+          <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-8 relative z-10">
+            {/* Left Group */}
+            <div className="flex flex-col gap-6 sm:gap-8 items-start w-full lg:w-auto">
+              {/* Card 1: Industry Leaders */}
+              <div className="relative group self-start lg:translate-x-2 xl:translate-x-6 hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-48 sm:w-56 h-32 sm:h-36 rounded-[28px] overflow-hidden border-2 border-purple-400/40 bg-[#1e1035]/80 shadow-2xl backdrop-blur-sm">
+                  <img 
+                    src="/assets/hero-leaders.jpg" 
+                    alt="Industry Leaders" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                  />
                 </div>
-                <div>
-                  <div className="text-xs font-bold text-navy dark:text-foreground flex items-center gap-2">
-                    <span>Microsoft Cloud Architecture Fabric</span>
-                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-                  </div>
-                  <div className="text-[10px] text-muted-foreground">Global Delivery: United Kingdom · United States · Pakistan</div>
+                {/* Purple Badge: Industry Leaders */}
+                <div className="absolute -bottom-3 left-4 rounded-full bg-[#7c3aed] px-3.5 py-1 text-[11px] text-white shadow-lg ring-1 ring-white/20 flex items-center gap-1">
+                  <span className="font-normal text-white/90">Industry</span>
+                  <strong className="font-bold text-white">Leaders</strong>
+                </div>
+                {/* Floating Square Purple Pill with Bar Chart */}
+                <div className="absolute -right-3 top-8 size-7 rounded-lg bg-[#9333ea] grid place-items-center text-white shadow-lg ring-1 ring-white/20">
+                  <BarChart2 className="size-4" />
                 </div>
               </div>
 
-              {/* Status and SLA */}
-              <div className="flex items-center gap-2">
-                <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold text-emerald-500 ring-1 ring-emerald-500/20">
-                  99.99% Availability SLA
-                </span>
-                <span className="rounded-full bg-brand/10 px-3 py-1 text-[11px] font-semibold text-brand ring-1 ring-brand/20">
-                  14+ Years Mastery
-                </span>
+              {/* Card 2: Empowering Growth */}
+              <div className="relative group self-start sm:translate-x-4 lg:translate-x-8 xl:translate-x-16 hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-56 sm:w-64 h-24 sm:h-28 rounded-full overflow-hidden border-2 border-purple-400/40 bg-[#1e1035]/80 shadow-2xl backdrop-blur-sm">
+                  <img 
+                    src="/assets/hero-robothand.jpg" 
+                    alt="Empowering Growth" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                  />
+                </div>
+                {/* Purple Badge: Empowering Growth */}
+                <div className="absolute -bottom-3 right-4 rounded-full bg-[#7c3aed] px-3.5 py-1 text-[11px] text-white shadow-lg ring-1 ring-white/20 flex items-center gap-1">
+                  <span className="font-normal text-white/90">Empowering</span>
+                  <strong className="font-bold text-white">Growth</strong>
+                </div>
+                {/* Sparkle Star */}
+                <Sparkles className="absolute -top-3 right-8 size-4 text-purple-300 animate-pulse" />
               </div>
             </div>
 
-            {/* Application Switcher Tabs */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-2 rounded-2xl bg-muted/60 p-1.5 dark:bg-muted/20">
-              {HERO_APPS.map((app) => (
-                <button
-                  key={app.id}
-                  onClick={() => setActiveTab(app.id)}
-                  className={`flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold transition-all ${
-                    activeTab === app.id
-                      ? 'bg-card text-brand shadow-sm ring-1 ring-brand/20 dark:bg-card'
-                      : 'text-muted-foreground hover:text-navy dark:hover:text-foreground'
-                  }`}
-                >
-                  <span>{app.name}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Active App Showcase Details */}
-            <div className="mt-6 grid items-center gap-6 md:grid-cols-12 rounded-2xl border border-black/5 bg-surface/50 p-6 dark:border-white/5 dark:bg-navy-dark/40">
-              <div className="md:col-span-8 space-y-3">
-                <div className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-2.5 py-0.5 text-[10px] font-bold text-brand uppercase tracking-wider">
-                  <Cpu className="size-3" />
-                  <span>{selectedApp.badge}</span>
+            {/* RIGHT WING: Floating Pill Elements matching screenshot */}
+            <div className="flex flex-col gap-6 sm:gap-8 items-end w-full lg:w-auto mt-4 lg:mt-0">
+              {/* Card 3: Trusted Partner */}
+              <div className="relative group self-end lg:-translate-x-2 xl:-translate-x-6 hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-40 sm:w-48 h-52 sm:h-60 rounded-[32px] overflow-hidden border-2 border-purple-400/40 bg-[#1e1035]/80 shadow-2xl backdrop-blur-sm">
+                  <img 
+                    src="/assets/hero-consultant.jpg" 
+                    alt="Trusted Partner" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                  />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-navy dark:text-foreground leading-snug">
-                  {selectedApp.headline}
-                </h3>
-                <p className="text-xs md:text-sm text-muted-foreground">
-                  Enterprise-grade Microsoft Dynamics 365 implementation with pre-configured accelerators, HMRC Making Tax Digital compliance, and continuous Copilot AI automation.
-                </p>
-                <div className="pt-2 flex items-center gap-3">
-                  <Link
-                    to={selectedApp.link}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand hover:opacity-80 transition-opacity"
-                  >
-                    <span>View Solution Architecture</span>
-                    <ArrowRight className="size-3.5" />
-                  </Link>
-                  <span className="text-muted-foreground">·</span>
-                  <Link
-                    to="/book-consultation"
-                    className="text-xs font-medium text-muted-foreground hover:text-navy dark:hover:text-foreground"
-                  >
-                    Request Scoping Call
-                  </Link>
+                {/* Purple Badge: Trusted Partner */}
+                <div className="absolute -bottom-3 right-2 rounded-full bg-[#7c3aed] px-3.5 py-1 text-[11px] text-white shadow-lg ring-1 ring-white/20 flex items-center gap-1">
+                  <span className="font-normal text-white/90">Trusted</span>
+                  <strong className="font-bold text-white">Partner</strong>
+                </div>
+                {/* Floating Square Purple Pill with Lightning Zap */}
+                <div className="absolute -left-3 top-14 size-7 rounded-lg bg-[#9333ea] grid place-items-center text-white shadow-lg ring-1 ring-white/20">
+                  <Zap className="size-4 fill-current" />
                 </div>
               </div>
 
-              <div className="md:col-span-4 rounded-2xl border border-brand/20 bg-brand/5 p-5 dark:bg-brand/10 text-center">
-                <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  {selectedApp.kpiLabel}
+              {/* Card 4: Proven Expertise */}
+              <div className="relative group self-end sm:-translate-x-4 lg:-translate-x-8 xl:-translate-x-16 hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-56 sm:w-64 h-24 sm:h-28 rounded-full overflow-hidden border-2 border-purple-400/40 bg-[#1e1035]/80 shadow-2xl backdrop-blur-sm">
+                  <img 
+                    src="/assets/hero-ai-bot.jpg" 
+                    alt="Proven Expertise" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                  />
                 </div>
-                <div className="mt-1 text-3xl md:text-4xl font-extrabold text-brand tracking-tight">
-                  {selectedApp.kpi}
+                {/* Purple Badge: Proven Expertise */}
+                <div className="absolute -bottom-3 left-6 rounded-full bg-[#7c3aed] px-3.5 py-1 text-[11px] text-white shadow-lg ring-1 ring-white/20 flex items-center gap-1">
+                  <span className="font-normal text-white/90">Proven</span>
+                  <strong className="font-bold text-white">Expertise</strong>
                 </div>
-                <div className="mt-2 text-[11px] text-muted-foreground">
-                  Measured post-deployment efficiency improvement
-                </div>
+                {/* Sparkle Star */}
+                <Sparkles className="absolute -top-3 right-10 size-4 text-purple-300 animate-pulse" />
               </div>
             </div>
           </div>
         </div>
 
-        {/* CLIENT / ECOSYSTEM BADGES ROW - Matching Dynamics Square UK client-home-new-list */}
-        <div className="mt-14 pt-8 border-t border-black/5 dark:border-white/10">
-          <div className="flex flex-wrap items-center justify-between gap-6 text-xs text-muted-foreground">
-            <span className="font-semibold uppercase tracking-widest text-navy/70 dark:text-foreground/70">
-              Accredited UK Ecosystem:
-            </span>
-            <div className="flex flex-wrap items-center gap-6 sm:gap-8 font-semibold">
-              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
-                <img 
-                  src="/assets/microsoft-partner.png" 
-                  alt="Microsoft Solutions Partner" 
-                  className="h-5 w-auto object-contain block dark:hidden"
-                />
-                <img 
-                  src="/assets/microsoft-partner-dark.png" 
-                  alt="Microsoft Solutions Partner" 
-                  className="h-5 w-auto object-contain hidden dark:block"
-                />
-              </span>
-              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
-                <Database className="size-4 text-purple" />
-                Cloud Solution Provider (CSP)
-              </span>
-              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
-                <Sparkles className="size-4 text-brand" />
-                AI Cloud Partner
-              </span>
-              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
-                <Award className="size-4 text-emerald-500" />
-                ISO 27001 Certified
-              </span>
-              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
-                <Building2 className="size-4 text-sky" />
-                Crown Commercial Service
-              </span>
-              <span className="flex items-center gap-1.5 text-navy dark:text-foreground">
-                <MapPin className="size-4 text-brand" />
-                United Kingdom · United States · Pakistan
-              </span>
+        {/* 5. BOTTOM CLIENT / ACCREDITATION LOGO STRIP matching screenshot */}
+        <div className="mt-14 pt-8 border-t border-white/10">
+          <div className="flex flex-wrap items-center justify-center lg:justify-between gap-8 sm:gap-12 opacity-80 hover:opacity-100 transition-opacity">
+            {/* Parweld */}
+            <div className="flex items-center gap-1 text-white tracking-tight font-black text-xl sm:text-2xl">
+              <span>parweld</span>
+              <span className="text-[10px] ml-0.5 text-brand self-start">▲</span>
+            </div>
+
+            {/* NCC Education */}
+            <div className="flex items-center gap-2">
+              <div className="rounded-full border border-white/60 px-2 py-0.5 text-center">
+                <span className="font-black text-xs sm:text-sm tracking-wider text-white">NCC</span>
+              </div>
+              <span className="text-xs sm:text-sm font-semibold tracking-wide text-white/80">education</span>
+            </div>
+
+            {/* COMXO */}
+            <div className="border-y border-white/40 py-0.5 px-2 text-center">
+              <span className="font-black tracking-[0.25em] text-base sm:text-lg text-white">COMXO</span>
+            </div>
+
+            {/* Arteak */}
+            <div className="flex items-center gap-1.5 font-bold text-base sm:text-lg text-white">
+              <span className="grid size-5 place-items-center rounded bg-white/15 text-[10px] font-black">A</span>
+              <span>Arteak<sup className="text-[8px] ml-0.5">™</sup></span>
+            </div>
+
+            {/* MTA */}
+            <div className="rounded-full border border-white/50 px-4 py-1 flex items-center">
+              <span className="font-black tracking-widest text-sm sm:text-base text-white">MTA</span>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Floating Chat Bubble Widget matching screenshot (bottom-right) */}
+      <Link
+        to="/contact"
+        aria-label="Chat with Dynamics 365 Specialist"
+        className="fixed bottom-6 right-6 z-50 size-13 sm:size-14 rounded-full bg-gradient-to-tr from-[#ff3366] to-[#ff5252] shadow-2xl shadow-rose-600/50 flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all group"
+      >
+        <MessageSquare className="size-6 group-hover:rotate-6 transition-transform" />
+      </Link>
     </section>
   );
 };

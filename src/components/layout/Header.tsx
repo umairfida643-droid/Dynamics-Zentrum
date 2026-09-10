@@ -10,7 +10,6 @@ import {
   ArrowRight,
   Phone,
   Mail,
-  Calendar,
   Database,
   Briefcase,
   Layers,
@@ -428,20 +427,49 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               )}
             </div>
 
-            {/* 5. CONTACT US (Direct link) */}
-            <Link
-              to="/contact"
-              className={`px-3.5 py-2 text-sm font-semibold transition-colors rounded-lg ${
-                location.pathname === '/contact'
-                  ? 'text-brand bg-brand/5 dark:bg-brand/10'
-                  : 'text-navy/80 dark:text-foreground/80 hover:text-brand'
-              }`}
+            {/* 5. RESOURCES DROPDOWN matching screenshot */}
+            <div 
+              className="relative py-2"
+              onMouseEnter={() => handleMouseEnter('resources')}
+              onMouseLeave={handleMouseLeave}
             >
-              Contact Us
-            </Link>
+              <button 
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-semibold transition-colors rounded-lg ${
+                  activeMenu === 'resources' 
+                    ? 'text-brand bg-brand/5 dark:bg-brand/10' 
+                    : 'text-navy/80 dark:text-foreground/80 hover:text-brand'
+                }`}
+                onClick={() => setActiveMenu(activeMenu === 'resources' ? null : 'resources')}
+              >
+                <span>Resources</span>
+                <ChevronDown className={`size-3.5 transition-transform duration-200 ${
+                  activeMenu === 'resources' ? 'rotate-180 text-brand' : ''
+                }`} />
+              </button>
+
+              {activeMenu === 'resources' && (
+                <div 
+                  className="absolute top-full right-0 pt-1 w-64 z-[100] animate-in fade-in slide-in-from-top-2 duration-150"
+                  onMouseEnter={() => handleMouseEnter('resources')}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="rounded-2xl border border-black/10 bg-white p-3 shadow-2xl dark:border-white/15 dark:bg-[#150520] space-y-1">
+                    <Link to="/solutions" className="block rounded-xl px-3.5 py-2.5 text-sm font-semibold text-navy hover:bg-muted dark:text-foreground transition-colors">
+                      Implementation Roadmap
+                    </Link>
+                    <Link to="/services" className="block rounded-xl px-3.5 py-2.5 text-sm font-semibold text-navy hover:bg-muted dark:text-foreground transition-colors">
+                      Support SLA Agreements
+                    </Link>
+                    <Link to="/book-consultation" className="block rounded-xl px-3.5 py-2.5 text-sm font-semibold text-navy hover:bg-muted dark:text-foreground transition-colors">
+                      Architecture Assessment
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
-          {/* Right: Actions & Signature Contact Us / Book Consultation Button */}
+          {/* Right: Actions & Signature Contact Us Button */}
           <div className="flex items-center gap-3 shrink-0">
             {/* Search Trigger */}
             {onOpenSearch && (
@@ -463,13 +491,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               {isDark ? <Sun className="size-4 text-amber-400" /> : <Moon className="size-4" />}
             </button>
 
-            {/* SIGNATURE ACTION BUTTON (button-new custtsss) matching Dynamics Square UK */}
+            {/* SIGNATURE WHITE PILL "Contact Us" BUTTON matching screenshot */}
             <Link
-              to="/book-consultation"
-              className="hidden sm:inline-flex btn-shine items-center gap-2 rounded-full bg-brand px-6 py-2.5 text-sm font-bold text-brand-foreground shadow-lg shadow-brand/25 ring-1 ring-brand hover:scale-[1.02] transition-all"
+              to="/contact"
+              className="hidden sm:inline-flex items-center justify-center rounded-full bg-white text-navy font-bold px-6 py-2.5 text-sm shadow-md hover:bg-white/90 hover:scale-[1.02] active:scale-98 transition-all border border-black/5"
             >
-              <Calendar className="size-4" />
-              <span>Book Consultation</span>
+              Contact Us
             </Link>
 
             {/* Mobile Hamburger Toggle */}
