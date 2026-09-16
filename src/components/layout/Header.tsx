@@ -6,17 +6,121 @@ import {
   X, 
   Sun, 
   Moon, 
-  Search,
-  ArrowRight,
-  Phone,
-  Mail,
-  Database,
-  Briefcase,
-  Layers,
-  Cpu
+  Search, 
+  ArrowRight, 
+  Phone, 
+  Mail, 
+  Database, 
+  Briefcase, 
+  Layers, 
+  Cpu,
+  Factory,
+  Landmark,
+  Stethoscope,
+  ShoppingBag,
+  HardHat,
+  Building,
+  Building2,
+  GraduationCap,
+  HeartHandshake,
+  Compass,
+  Rocket,
+  RefreshCw,
+  ArrowUpCircle,
+  Headphones,
+  Settings2,
+  Store,
+  Boxes,
+  Coins,
+  Truck,
+  ShoppingCart,
+  Target,
+  Wrench,
+  PieChart,
+  BarChart3,
+  Workflow,
+  Cloud,
+  Sparkles
 } from 'lucide-react';
 import { SERVICES_DATA, SOLUTIONS_DATA, INDUSTRIES_DATA } from '../../data/siteData';
 import { MicrosoftPartnerLogo } from '../common/MicrosoftPartnerLogo';
+
+const getServiceIcon = (slug: string) => {
+  switch (slug) {
+    case 'consulting':
+      return <Compass className="size-4" />;
+    case 'implementation':
+      return <Rocket className="size-4" />;
+    case 'migration':
+      return <RefreshCw className="size-4" />;
+    case 'upgrades':
+      return <ArrowUpCircle className="size-4" />;
+    case 'support':
+      return <Headphones className="size-4" />;
+    case 'managed-services':
+      return <Settings2 className="size-4" />;
+    default:
+      return <Layers className="size-4" />;
+  }
+};
+
+const getIndustryIcon = (slug: string) => {
+  switch (slug) {
+    case 'manufacturing':
+      return <Factory className="size-4" />;
+    case 'financial-services':
+      return <Landmark className="size-4" />;
+    case 'healthcare':
+      return <Stethoscope className="size-4" />;
+    case 'retail':
+      return <ShoppingBag className="size-4" />;
+    case 'construction':
+      return <HardHat className="size-4" />;
+    case 'real-estate':
+      return <Building className="size-4" />;
+    case 'education':
+      return <GraduationCap className="size-4" />;
+    case 'ngo':
+      return <HeartHandshake className="size-4" />;
+    default:
+      return <Building2 className="size-4" />;
+  }
+};
+
+const getSolutionIcon = (slug: string) => {
+  switch (slug) {
+    case 'business-central':
+      return <Boxes className="size-4" />;
+    case 'finance':
+      return <Coins className="size-4" />;
+    case 'supply-chain':
+      return <Truck className="size-4" />;
+    case 'commerce':
+      return <ShoppingCart className="size-4" />;
+    case 'project-operations':
+      return <Briefcase className="size-4" />;
+    case 'sales':
+      return <Target className="size-4" />;
+    case 'customer-service':
+      return <Headphones className="size-4" />;
+    case 'field-service':
+      return <Wrench className="size-4" />;
+    case 'customer-insights':
+      return <PieChart className="size-4" />;
+    case 'power-bi':
+      return <BarChart3 className="size-4" />;
+    case 'fabric':
+      return <Database className="size-4" />;
+    case 'power-apps':
+      return <Workflow className="size-4" />;
+    case 'azure':
+      return <Cloud className="size-4" />;
+    case 'copilot':
+      return <Sparkles className="size-4" />;
+    default:
+      return <Cpu className="size-4" />;
+  }
+};
 
 interface HeaderProps {
   onOpenSearch?: () => void;
@@ -164,7 +268,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               {/* Mega-menu panel matching Dynamics Square UK solution tabs */}
               {activeMenu === 'solution' && (
                 <div 
-                  className="absolute top-full -left-20 pt-1 w-[820px] max-w-[calc(100vw-2rem)] z-[100] animate-in fade-in slide-in-from-top-2 duration-150"
+                  className="absolute top-full -left-20 pt-1 w-[860px] max-w-[calc(100vw-2rem)] z-[100] animate-in fade-in slide-in-from-top-2 duration-150"
                   onMouseEnter={() => handleMouseEnter('solution')}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -210,25 +314,45 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                     <div className="flex-1">
                       {solutionCategory === 'size' && (
                         <div className="grid grid-cols-2 gap-3">
-                          <Link to="/solutions/business-central" className="rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-muted/40 dark:border-white/10 transition-colors">
-                            <div className="text-xs font-bold text-brand">Startups &amp; Scaleups</div>
-                            <div className="text-sm font-semibold text-navy dark:text-foreground mt-0.5">D365 Business Central Cloud</div>
-                            <div className="text-xs text-muted-foreground mt-1">Lightweight rapid setup with zero IT infrastructure overhead.</div>
+                          <Link to="/solutions/business-central" className="group flex items-start gap-3 rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-brand/[0.03] dark:border-white/10 dark:hover:bg-brand/10 transition-all">
+                            <div className="size-8 rounded-xl bg-brand/10 dark:bg-brand/20 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-colors mt-0.5">
+                              <Rocket className="size-4" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="text-xs font-bold text-brand">Startups &amp; Scaleups</div>
+                              <div className="text-sm font-semibold text-navy dark:text-foreground mt-0.5 group-hover:text-brand transition-colors">D365 Business Central Cloud</div>
+                              <div className="text-xs text-muted-foreground mt-1">Lightweight rapid setup with zero IT infrastructure overhead.</div>
+                            </div>
                           </Link>
-                          <Link to="/solutions/business-central" className="rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-muted/40 dark:border-white/10 transition-colors">
-                            <div className="text-xs font-bold text-brand">Small Businesses</div>
-                            <div className="text-sm font-semibold text-navy dark:text-foreground mt-0.5">Connected Core Operations</div>
-                            <div className="text-xs text-muted-foreground mt-1">Unified sales, purchasing, invoicing, and bank automation.</div>
+                          <Link to="/solutions/business-central" className="group flex items-start gap-3 rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-brand/[0.03] dark:border-white/10 dark:hover:bg-brand/10 transition-all">
+                            <div className="size-8 rounded-xl bg-brand/10 dark:bg-brand/20 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-colors mt-0.5">
+                              <Store className="size-4" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="text-xs font-bold text-brand">Small Businesses</div>
+                              <div className="text-sm font-semibold text-navy dark:text-foreground mt-0.5 group-hover:text-brand transition-colors">Connected Core Operations</div>
+                              <div className="text-xs text-muted-foreground mt-1">Unified sales, purchasing, invoicing, and bank automation.</div>
+                            </div>
                           </Link>
-                          <Link to="/solutions/finance" className="rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-muted/40 dark:border-white/10 transition-colors">
-                            <div className="text-xs font-bold text-brand">Medium Businesses</div>
-                            <div className="text-sm font-semibold text-navy dark:text-foreground mt-0.5">Multi-Entity Operations</div>
-                            <div className="text-xs text-muted-foreground mt-1">Advanced multi-location warehousing and consolidated ledgers.</div>
+                          <Link to="/solutions/finance" className="group flex items-start gap-3 rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-brand/[0.03] dark:border-white/10 dark:hover:bg-brand/10 transition-all">
+                            <div className="size-8 rounded-xl bg-brand/10 dark:bg-brand/20 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-colors mt-0.5">
+                              <Layers className="size-4" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="text-xs font-bold text-brand">Medium Businesses</div>
+                              <div className="text-sm font-semibold text-navy dark:text-foreground mt-0.5 group-hover:text-brand transition-colors">Multi-Entity Operations</div>
+                              <div className="text-xs text-muted-foreground mt-1">Advanced multi-location warehousing and consolidated ledgers.</div>
+                            </div>
                           </Link>
-                          <Link to="/solutions/finance" className="rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-muted/40 dark:border-white/10 transition-colors">
-                            <div className="text-xs font-bold text-brand">Large Enterprises</div>
-                            <div className="text-sm font-semibold text-navy dark:text-foreground mt-0.5">D365 Finance &amp; Operations</div>
-                            <div className="text-xs text-muted-foreground mt-1">Tier-1 high throughput, global multi-entity, and sovereign data.</div>
+                          <Link to="/solutions/finance" className="group flex items-start gap-3 rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-brand/[0.03] dark:border-white/10 dark:hover:bg-brand/10 transition-all">
+                            <div className="size-8 rounded-xl bg-brand/10 dark:bg-brand/20 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-colors mt-0.5">
+                              <Building2 className="size-4" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="text-xs font-bold text-brand">Large Enterprises</div>
+                              <div className="text-sm font-semibold text-navy dark:text-foreground mt-0.5 group-hover:text-brand transition-colors">D365 Finance &amp; Operations</div>
+                              <div className="text-xs text-muted-foreground mt-1">Tier-1 high throughput, global multi-entity, and sovereign data.</div>
+                            </div>
                           </Link>
                         </div>
                       )}
@@ -236,9 +360,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                       {solutionCategory === 'erp' && (
                         <div className="grid grid-cols-2 gap-3">
                           {SOLUTIONS_DATA.filter(s => s.category === 'ERP').slice(0, 4).map(sol => (
-                            <Link key={sol.slug} to={`/solutions/${sol.slug}`} className="rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-muted/40 dark:border-white/10 transition-colors">
-                              <div className="text-sm font-bold text-navy dark:text-foreground">{sol.title}</div>
-                              <div className="text-xs text-muted-foreground mt-1 line-clamp-2">{sol.summary}</div>
+                            <Link key={sol.slug} to={`/solutions/${sol.slug}`} className="group flex items-start gap-3 rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-brand/[0.03] dark:border-white/10 dark:hover:bg-brand/10 transition-all">
+                              <div className="size-8 rounded-xl bg-brand/10 dark:bg-brand/20 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-colors mt-0.5">
+                                {getSolutionIcon(sol.slug)}
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <div className="text-sm font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors">{sol.title}</div>
+                                <div className="text-xs text-muted-foreground mt-1 line-clamp-2">{sol.summary}</div>
+                              </div>
                             </Link>
                           ))}
                         </div>
@@ -247,9 +376,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                       {solutionCategory === 'crm' && (
                         <div className="grid grid-cols-2 gap-3">
                           {SOLUTIONS_DATA.filter(s => s.category === 'CRM').slice(0, 4).map(sol => (
-                            <Link key={sol.slug} to={`/solutions/${sol.slug}`} className="rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-muted/40 dark:border-white/10 transition-colors">
-                              <div className="text-sm font-bold text-navy dark:text-foreground">{sol.title}</div>
-                              <div className="text-xs text-muted-foreground mt-1 line-clamp-2">{sol.summary}</div>
+                            <Link key={sol.slug} to={`/solutions/${sol.slug}`} className="group flex items-start gap-3 rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-brand/[0.03] dark:border-white/10 dark:hover:bg-brand/10 transition-all">
+                              <div className="size-8 rounded-xl bg-brand/10 dark:bg-brand/20 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-colors mt-0.5">
+                                {getSolutionIcon(sol.slug)}
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <div className="text-sm font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors">{sol.title}</div>
+                                <div className="text-xs text-muted-foreground mt-1 line-clamp-2">{sol.summary}</div>
+                              </div>
                             </Link>
                           ))}
                         </div>
@@ -258,9 +392,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                       {solutionCategory === 'platform' && (
                         <div className="grid grid-cols-2 gap-3">
                           {SOLUTIONS_DATA.filter(s => s.category === 'AI & Analytics' || s.category === 'Platform').slice(0, 4).map(sol => (
-                            <Link key={sol.slug} to={`/solutions/${sol.slug}`} className="rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-muted/40 dark:border-white/10 transition-colors">
-                              <div className="text-sm font-bold text-navy dark:text-foreground">{sol.title}</div>
-                              <div className="text-xs text-muted-foreground mt-1 line-clamp-2">{sol.summary}</div>
+                            <Link key={sol.slug} to={`/solutions/${sol.slug}`} className="group flex items-start gap-3 rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-brand/[0.03] dark:border-white/10 dark:hover:bg-brand/10 transition-all">
+                              <div className="size-8 rounded-xl bg-brand/10 dark:bg-brand/20 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-colors mt-0.5">
+                                {getSolutionIcon(sol.slug)}
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <div className="text-sm font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors">{sol.title}</div>
+                                <div className="text-xs text-muted-foreground mt-1 line-clamp-2">{sol.summary}</div>
+                              </div>
                             </Link>
                           ))}
                         </div>
@@ -293,7 +432,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
               {activeMenu === 'industries' && (
                 <div 
-                  className="absolute top-full -left-28 pt-1 w-[720px] max-w-[calc(100vw-2rem)] z-[100] animate-in fade-in slide-in-from-top-2 duration-150"
+                  className="absolute top-full -left-28 pt-1 w-[760px] max-w-[calc(100vw-2rem)] z-[100] animate-in fade-in slide-in-from-top-2 duration-150"
                   onMouseEnter={() => handleMouseEnter('industries')}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -306,13 +445,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                         <Link 
                           key={ind.slug} 
                           to={`/industries/${ind.slug}`}
-                          className="flex items-center justify-between rounded-xl p-3 border border-black/5 hover:border-brand/40 hover:bg-brand/5 dark:border-white/5 dark:hover:bg-brand/10 transition-colors"
+                          className="group flex items-center justify-between rounded-xl p-3 border border-black/5 hover:border-brand/40 hover:bg-brand/5 dark:border-white/5 dark:hover:bg-brand/10 transition-all"
                         >
-                          <div>
-                            <div className="text-sm font-bold text-navy dark:text-foreground">{ind.title}</div>
-                            <div className="text-[11px] text-muted-foreground">{ind.code}</div>
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="size-9 rounded-xl bg-brand/10 dark:bg-brand/20 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-colors">
+                              {getIndustryIcon(ind.slug)}
+                            </div>
+                            <div className="min-w-0">
+                              <div className="text-sm font-bold text-navy dark:text-foreground group-hover:text-brand transition-colors truncate">{ind.title}</div>
+                              <div className="text-[11px] text-muted-foreground">{ind.code}</div>
+                            </div>
                           </div>
-                          <ArrowRight className="size-3.5 text-muted-foreground" />
+                          <ArrowRight className="size-3.5 text-muted-foreground group-hover:text-brand group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
                         </Link>
                       ))}
                     </div>
@@ -349,7 +493,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
               {activeMenu === 'services' && (
                 <div 
-                  className="absolute top-full -left-16 pt-1 w-[640px] max-w-[calc(100vw-2rem)] z-[100] animate-in fade-in slide-in-from-top-2 duration-150"
+                  className="absolute top-full -left-16 pt-1 w-[760px] max-w-[calc(100vw-2rem)] z-[100] animate-in fade-in slide-in-from-top-2 duration-150"
                   onMouseEnter={() => handleMouseEnter('services')}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -359,11 +503,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                         <Link 
                           key={srv.slug} 
                           to={`/services/${srv.slug}`}
-                          className="rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-muted/40 dark:border-white/10 transition-colors"
+                          className="group flex items-start gap-3.5 rounded-2xl border border-black/5 p-3.5 hover:border-brand/40 hover:bg-brand/[0.03] dark:border-white/10 dark:hover:bg-brand/10 transition-all"
                         >
-                          <div className="text-xs font-bold text-brand uppercase tracking-wider">{srv.category}</div>
-                          <div className="text-sm font-bold text-navy dark:text-foreground mt-0.5">{srv.title}</div>
-                          <div className="text-xs text-muted-foreground mt-1 line-clamp-2">{srv.summary}</div>
+                          <div className="size-9 rounded-xl bg-brand/10 dark:bg-brand/20 text-brand flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:text-white transition-colors mt-0.5">
+                            {getServiceIcon(srv.slug)}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="text-[11px] font-bold text-brand uppercase tracking-wider">{srv.category}</div>
+                            <div className="text-sm font-bold text-navy dark:text-foreground mt-0.5 group-hover:text-brand transition-colors">{srv.title}</div>
+                            <div className="text-xs text-muted-foreground mt-1 line-clamp-2">{srv.summary}</div>
+                          </div>
                         </Link>
                       ))}
                     </div>
